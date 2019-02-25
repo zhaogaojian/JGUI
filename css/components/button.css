@@ -1,0 +1,53 @@
+
+/*按钮组件*/
+.jgui-btn {
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    margin-right: 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .jgui-btn div {
+    position: relative;
+    text-align: center;
+    margin-right: 10px;
+  }
+  .jgui-btn img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%; 
+  }
+  .jgui-btn i {
+    text-align: center;
+    margin-left: 5px;
+  }
+  .jgui-btn-down {
+    border-width: 5px;
+    border-style: solid dashed dashed;
+    content: "";
+    border-color: #222222 transparent transparent;
+    text-align: center;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    text-align: center;
+    margin-top: -2px;
+  }
+  .jgui-folderbtn {
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    float: left;
+    cursor: pointer;
+  }
+  

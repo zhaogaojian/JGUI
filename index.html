@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=IE7" />
+    <title>JGUI - 从零开始（学习心得）</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/jgui.css" type="text/css">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="bookmark" href="/favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/third/html5.js"></script>
+    <script type="text/javascript" src="/js/third/css3-mediaqueries.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="jgui-page-left">
+        <a class="jgui-logo" href="http://www.JGUI.com">JGUI DEMO</a>
+        <div class="jgui-accordion"
+            style="width:100%;overflow:hidden;position: absolute;top:60px;left:0px;right: 0px;bottom:0px;">
+            <div class="jgui-accordion-list">
+                <ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-home"></i>
+                                <span>目录1</span>
+                                <i class="jgui-accordion-navitem-more"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child" style="display: none;">
+                            <a>子项1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child" style="display: none;">
+                            <a>子项2</a>
+                        </dd>
+                    </dl>
+                </ul>
+                <ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录2</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录1</span>
+                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child"  style="display: none;">
+                                    <a>子项1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child"  style="display: none;">
+                                    <a>子项2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项3</a>
+                        </dd>
+                    </dl>
+                </ul>
+                <ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录1</span>
+                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child"  style="display: none;">
+                                    <a>子项1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child"  style="display: none;">
+                                    <a>子项2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项3</a>
+                        </dd>
+                    </dl>
+                </ul>
+
+                <ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录4</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录1</span>
+                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child"  style="display: none;">
+                                    <a>子项1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child"  style="display: none;">
+                                    <a>子项2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项</a>
+                        </dd>
+                    </dl>
+                </ul>
+                <ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录5</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录1</span>
+                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child"  style="display: none;">
+                                    <a>子项1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child"  style="display: none;">
+                                    <a>子项2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项3</a>
+                        </dd>
+                    </dl>
+                </ul>
+                <ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录6</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录1</span>
+                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child"  style="display: none;">
+                                    <a>子项1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child"  style="display: none;">
+                                    <a>子项2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项3</a>
+                        </dd>
+                    </dl>
+                </ul>
+                <ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录7</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录1</span>
+                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child"  style="display: none;">
+                                    <a>子项1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child"  style="display: none;">
+                                    <a>子项2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child">
+                            <a>子项3</a>
+                        </dd>
+                    </dl>
+                </ul>
+                <ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon icon-setting"></i>
+                                <span>目录8</span>
+                                <i class=""></i>
+                            </a>
+                        </dt>
+                    </dl>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="jgui-page-center" >
+        <div class="jgui-page-top">
+            <div class="anticon icon-menu-unfold jgui-folderbtn" style="visibility:hidden"></div>
+            <div class="jgui-btn" style="float:right;">
+                <div>
+                    <img src="./images/head.jpg"></img>
+                    <span>麦田守望者</span>
+                    <i class="jgui-btn-down"></i>
+                </div>
+            </div>
+        </div>
+        <div class="jgui-page-tab" style="visibility:hidden">
+            <div class="anticon icon-doubleleft jgui-tab-pre"></div>
+            <a class="jgui-tabitem"><span>首页</span><i class="anticon icon-close jgui-tab-close"></i></a>
+            <a class="jgui-tabitem selected"><span>图片控件</span><i class="anticon icon-close jgui-tab-close"></i></a>
+            <a class="jgui-tabitem"><span>日期控件</span><i class=" anticon icon-close jgui-tab-close "></i></a>
+            <div class="anticon icon-doubleright jgui-tab-next"></div>
+        </div>
+        <div class="jgui-page-content">
+            <div style="width: 100%;height: 100%;background: #FFFFFF"> 
+            <h3>开发中</h3><br/>
+            jgui-accordion（抽屉组件) √<br/>
+            -----------------------------------<br/>
+            <h3>源码下载</h3><br/>
+            <a href="./web.rar">源码下载地址</a><br/>
+            <a target="_blank" href="https://github.com/zhaogaojian/JGUI">GitHub地址</a><br/>
+            -----------------------------------<br/>
+            <h3>开发日志</h3><br/>
+            ------------2019-2-24 -------------<br/>
+            1、 Accordion组件实现<br/>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./js/jgui.all.js"></script>
+    <div class="jgui-page-bottom">
+        
+        <div style="color: #ccc;">
+        <a target="_blank"  href="http://shang.qq.com/wpa/qunwpa?idkey=aed8b7eff2166e78c89042a5f78de24711f658478e5b4b6895ef5c44121ee9a0" style="text-decoration:none;color: #ccc;"><img border="0" style="vertical-align: middle;" src="http://pub.idqqimg.com/wpa/images/group.png" alt="全栈工程师" title="全栈工程师">
+         616945527(口令abc123)</a>
+        <a href="http://www.miitbeian.gov.cn/"
+        style="text-decoration:none; color: #ccc;margin-left: 30px"> 备案号：豫ICP备14001940号-2</a>
+        </div>
+    </div>
+</body>
+
+</html>

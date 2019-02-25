@@ -1,0 +1,111 @@
+/*抽屉组件*/
+.jgui-accordion a:hover {
+  color: #ffffff;
+}
+.jgui-accordion {
+    padding: 0;
+    color: #cccccc;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+  }
+  .jgui-accordion-list
+  {
+    transition-property: all;
+    transition-duration: 1ms;
+    transition-timing-function:ease ;
+    transition-delay: 1ms;
+    position: relative;
+    zoom:1
+  }
+  .jgui-accordion.itemhover {
+    color: #ffffff;
+  }
+  .jgui-accordion ul {
+    position: relative;
+  }
+  .jgui-accordion-navitem {
+    line-height: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    zoom:1
+  }
+  
+  .jgui-accordion-navitem:hover:before {
+    content: "";
+    padding-right: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    border-left-color: #008888;
+    border-left-style: solid;
+    border-left-width: 5px;
+    pointer-events: none;
+  }
+  
+  .jgui-accordion-navitem-child {
+    line-height: 40px;
+    background-color: #151515;
+    margin-inline-start: 0px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: none;
+    zoom:1
+  }
+  .jgui-accordion-navitem a {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .jgui-accordion-navitem-child a {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 45px;
+    padding-left: 45px;
+  }
+  .jgui-accordion-navitem-child .jgui-accordion-navitem-child a {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 65px;
+    padding-left: 65px;
+  }
+  .jgui-accordion-navitem-child.selected {
+    background-color: #008888;
+    color: #ffffff;
+  }
+  .jgui-accordion-navitem-more {
+    border-width: 5px;
+    content: "";
+    border-style: solid solid solid solid;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-bottom-color: #fff;
+    /* border-color: transparent transparent  #fff transparent; */
+    /* border-color: transparent transparent #fff transparent; */
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    right: 10px;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    margin-top: -10px;
+  }
+  .jgui-accordion-navitem-more.expanded {
+    border-style: solid solid solid solid;
+    border-color: #fff transparent transparent transparent;
+    margin-top: 0px;
+  }
+  

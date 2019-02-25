@@ -47,12 +47,14 @@ $('.jgui-accordion').on(mousewheel, function (event) {
         var direction = datas.sumdelta ;
         var obj=$(this);
         var handle = function () {
+            datas.isscrolling=true;
             datas.sumdelta=0;
-            var step = Math.floor(obj.height()/10);//可视区高度
+            var step = Math.floor(obj.height()/100);//可视区高度
             var cur_top = obj.scrollTop();    //当前滚过的高度
-            obj.stop().animate({ scrollTop: direction * step + cur_top }, 400,'linear',function(){direction=0;});
+            obj.stop().animate({ scrollTop: direction*Math.abs(direction) * step + cur_top }, 800,'linear',function(){direction=0;datas.isscrolling=false});
             
         }
+        if(!datas.isscrolling)
         setTimeout(handle,100);
     } 
     stopPropagation(event);
@@ -76,7 +78,7 @@ $.fn.jAccordion = function (p_options,p_datas, p_param) {
     return this.each(function () {
         var obj = $(this);
         var datas = $.extend({
-            sumdelta:0
+            sumdelta:0,isscrolling:false
         },  p_datas);
         obj.data('datas', datas);
     });

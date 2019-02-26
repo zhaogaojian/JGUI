@@ -10,6 +10,7 @@
     -webkit-user-select: none;
     box-sizing: border-box;
   }
+
   .jgui-accordion-list
   {
     transition-property: all;

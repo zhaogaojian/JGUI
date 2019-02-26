@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=IE7" />
     <title>JGUI - 从零开始（学习心得）</title>
-    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/jgui.css" type="text/css">
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="bookmark" href="/favicon.ico" />
@@ -26,10 +26,9 @@
 </head>
 
 <body>
-    <div class="jgui-page-left">
-        <a class="jgui-logo" href="http://www.JGUI.com">JGUI DEMO</a>
-        <div class="jgui-accordion"
-            style="width:100%;overflow: hidden;position: absolute;top:60px;left:0px;right: 0px;bottom:0px;">
+    <div class="jgui-page-left unfold" id="leftpanel">
+        <a class="jgui-logo" href="http://www.JGUI.com" id="mainlogo">JGUI DEMO</a>
+        <div class="jgui-accordion" style="width:100%;overflow: hidden;position: absolute;top:60px;left:0px;right: 0px;bottom:0px;" id="menuaccordion">
             <div class="jgui-accordion-list">
                 <ul>
                     <dl>
@@ -62,7 +61,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -98,7 +97,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -135,7 +134,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -171,7 +170,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -207,7 +206,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -243,7 +242,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -279,7 +278,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -315,7 +314,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -351,7 +350,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -387,7 +386,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -423,7 +422,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -459,7 +458,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -495,7 +494,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -531,7 +530,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -567,7 +566,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -603,7 +602,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -639,7 +638,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -675,7 +674,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -711,7 +710,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -747,7 +746,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -783,7 +782,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -819,7 +818,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -855,7 +854,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -891,7 +890,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -927,7 +926,7 @@
                                 <dt class="jgui-accordion-navitem">
                                     <a>
                                         <span>子目录1</span>
-                                        <i class="jgui-accordion-navitem-more expanded"></i>
+                                        <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
@@ -963,9 +962,9 @@
             </div>
         </div>
     </div>
-    <div class="jgui-page-center" >
+    <div class="jgui-page-center" id="centerpanel">
         <div class="jgui-page-top">
-            <div class="anticon icon-menu-unfold jgui-folderbtn" style="visibility:hidden"></div>
+            <div class="anticon icon-menu-unfold jgui-folderbtn"  id="folderbtn"></div>
             <div class="jgui-btn" style="float:right;">
                 <div>
                     <img src="./images/head.jpg"></img>
@@ -985,22 +984,27 @@
             <div style="width: 100%;height: 100%;background: #FFFFFF;padding: 10px;box-sizing: border-box"> 
             <h3>开发中</h3><br/>
             jgui-accordion（抽屉组件) √<br/>
-            -----------------------------------<br/>
+            --------------------------------------------------------------------------------------------------------------<br/>
             <h3>源码下载</h3><br/>
             <a target="_blank" href="https://github.com/zhaogaojian/JGUI">GitHub地址(请点个 ★Star 鼓励下，谢谢!! )</a><br/>
-            -----------------------------------<br/>
+            --------------------------------------------------------------------------------------------------------------<br/>
             <h3>开发日志</h3><br/>
             ------------2019-2-26 -------------<br/>
             1、 优化Accordion鼠标中键滚动<br/>
+            2、 增加折叠功能<br/>
             ------------2019-2-24 -------------<br/>
             1、 Accordion组件实现<br/>
             ------------2019-1-1 -------------<br/>
             1、 开坑<br/>
+            --------------------------------------------------------------------------------------------------------------<br/>
+            <h3>命名规则：</h3><br/>
+            1、变量命名使用小写，_开头的变量代表系统变量，一般Jquery对象内部存储临时数据用，外部尽量不要直接使用。<br/>
+            2、p_开头的表示函数参数，以p_开头为了减少和函数内部命名冲突。<br/>
+            3、函数用j小写开头的驼峰，如jAccordion()。<br/>
+            4、组件定义使用jgui-xxx全小写方式,如jgui-accordion。<br/>
             </div>
         </div>
     </div>
-
-    <script type="text/javascript" src="./js/jgui.all.js?v=20190226"></script>
     <div class="jgui-page-bottom">
         
         <div style="color: #ccc;">
@@ -1016,6 +1020,8 @@
             备案号：豫ICP备14001940号-2</a>
         </div>
     </div>
+    <script type="text/javascript" src="./js/jgui.all.js?v=2019022601"></script>
+    <script type="text/javascript" src="./js/page/index.js"></script>
 </body>
 
 </html>

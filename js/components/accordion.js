@@ -115,6 +115,25 @@ $.fn.jAccordion = function(p_options, p_datas, p_param) {
     obj.data("datas", datas);
   });
 };
+//这里只获取第一层navitem就可以，回头代码需要改进
+//折叠
+$.fn.jAccordionfold = function() {
+  return this.each(function() {
+    var obj = $(this);
+    obj.find('.jgui-accordion-navitem').siblings("dd").slideUp();
+    obj.find('.jgui-accordion-navitem span').hide();
+    obj.find('.jgui-accordion-navitem .jgui-accordion-navitem-more').hide();
+  });
+};
+//展开
+$.fn.jAccordionunfold = function() {
+  return this.each(function() {
+    var obj = $(this);
+    obj.find('.jgui-accordion-navitem-more.expanded').closest(".jgui-accordion-navitem").siblings("dd").slideDown();
+    obj.find('.jgui-accordion-navitem span').show();
+    obj.find('.jgui-accordion-navitem .jgui-accordion-navitem-more').show();
+  });
+};
 $(".jgui-accordion").jAccordion();
 
 //使用css3实现

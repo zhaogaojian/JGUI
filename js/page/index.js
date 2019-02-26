@@ -13,6 +13,7 @@ $('#folderbtn').click(function(event) {
         $('#menuaccordion').jAccordionunfold();
     }
     $('#leftpanel').toggleClass('unfold');
+    $('#folderbtn').toggleClass('icon-menu-unfold icon-menu-fold');
 });
 $("#menuaccordion .jgui-accordion-navitem").click(function(event) {
     if(!$('#leftpanel').is('.unfold')){
@@ -21,5 +22,6 @@ $("#menuaccordion .jgui-accordion-navitem").click(function(event) {
         $('#mainlogo').html('JGUI DEMO');
         $('#menuaccordion').jAccordionunfold();
         $('#leftpanel').toggleClass('unfold');
+        $('#folderbtn').toggleClass('icon-menu-unfold icon-menu-fold');
     }
   });

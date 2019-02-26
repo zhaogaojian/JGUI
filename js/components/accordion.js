@@ -41,12 +41,10 @@ $(".jgui-accordion-navitem-child").click(function(event) {
   $(this).addClass("selected");
   stopPropagation(event);
 });
-var startmousewheeldatetime = new Date().valueOf();
 //电脑端中键滚动事件
 var mousewheel =
   getBrowserInfo() == "Firefox" ? "DOMMouseScroll" : "mousewheel";
 $(".jgui-accordion").on(mousewheel, function(event) {
-    startmousewheeldatetime = new Date().valueOf();
   var delta = 0;
   var direction = 0;
   if (!event)
@@ -60,16 +58,16 @@ $(".jgui-accordion").on(mousewheel, function(event) {
   }
   if (delta) {
     var datas = $(this).data("datas");
-    datas.sumdelta += delta > 0 ? -1 : 1;
+    datas._sumdelta += delta > 0 ? -1 : 1;
+    datas._startmousewheeldatetime = new Date().valueOf();
     var obj = $(this);
     var handle = function() {
       var step = Math.floor(obj.height() / 10); //可视区高度
       var cur_top = obj.scrollTop(); //当前滚过的高度
-      var curdatetime = new Date().valueOf();
-      if (curdatetime - startmousewheeldatetime > 100 && datas.sumdelta != 0) {
-        //500ms内没有移动滚轮
-        direction = datas.sumdelta;
-        datas.sumdelta = 0;
+      if (new Date().valueOf() - datas._startmousewheeldatetime > 100 && datas._sumdelta != 0) {
+        //100ms内没有移动滚轮
+        direction = datas._sumdelta;
+        datas._sumdelta = 0;
         obj.stop().animate(
           {
             scrollTop: direction * Math.abs(direction) * step + cur_top
@@ -77,14 +75,14 @@ $(".jgui-accordion").on(mousewheel, function(event) {
           400,
           "linear",
           function() {
-            clearInterval(datas.mouseinterval);
-            datas.mouseinterval = undefined;
+            clearInterval(datas._mouseintervalhandle);
+            datas._mouseintervalhandle = undefined;
           }
         );
       }
     };
-    if (datas.mouseinterval == undefined) {
-      datas.mouseinterval = setInterval(handle, 10);
+    if (datas._mouseintervalhandle == undefined) {
+      datas._mouseintervalhandle = setInterval(handle, 10);
     }
   }
   stopPropagation(event);
@@ -108,8 +106,9 @@ $.fn.jAccordion = function(p_options, p_datas, p_param) {
     var obj = $(this);
     var datas = $.extend(
       {
-        sumdelta: 0,
-        mouseinterval: undefined
+        _sumdelta: 0,
+        _mouseintervalhandle: undefined,
+        _startmousewheeldatetime:null
       },
       p_datas
     );

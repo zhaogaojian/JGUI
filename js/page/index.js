@@ -16,14 +16,19 @@ $(function() {
     $("#leftpanel").toggleClass("unfold");
     $("#folderbtn").toggleClass("icon-menu-unfold icon-menu-fold");
   });
-  $("#menuaccordion .jgui-accordion-navitem").click(function(event) {
-    if (!$("#leftpanel").is(".unfold")) {
-      $("#leftpanel").width(300);
-      $("#centerpanel").css("left", "300px");
-      $("#mainlogo").html("JGUI DEMO");
-      J.Accordion.unfold($("#menuaccordion"));
-      $("#leftpanel").toggleClass("unfold");
-      $("#folderbtn").toggleClass("icon-menu-unfold icon-menu-fold");
-    }
-  });
+
+ var events = $('#menuaccordion').attr("events");
+ events.onNavItemClick=function (obj)
+  {
+     
+    if (!$("#leftpanel").is(".unfold")) {//折叠状态展开
+        $("#leftpanel").width(300);
+        $("#centerpanel").css("left", "300px");
+        $("#mainlogo").html("JGUI DEMO");
+        J.Accordion.unfold($(obj).closest(".jgui-accordion"));
+        $("#leftpanel").toggleClass("unfold");
+        $("#folderbtn").toggleClass("icon-menu-unfold icon-menu-fold");
+        return;
+      }
+  };
 });

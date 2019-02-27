@@ -6,12 +6,12 @@ $(function() {
       $("#leftpanel").width(50);
       $("#centerpanel").css("left", "50px");
       $("#mainlogo").html("J");
-      J.Accordion.fold($("#menuaccordion"));
+      J.Accordion($("#menuaccordion")).fold();
     } else {
       $("#leftpanel").width(300);
       $("#centerpanel").css("left", "300px");
       $("#mainlogo").html("JGUI DEMO");
-      J.Accordion.unfold($("#menuaccordion"));
+      J.Accordion($("#menuaccordion")).unfold();
     }
     $("#leftpanel").toggleClass("unfold");
     $("#folderbtn").toggleClass("icon-menu-unfold icon-menu-fold");
@@ -25,7 +25,7 @@ $(function() {
         $("#leftpanel").width(300);
         $("#centerpanel").css("left", "300px");
         $("#mainlogo").html("JGUI DEMO");
-        J.Accordion.unfold($(obj).closest(".jgui-accordion"));
+        J.Accordion($(obj).closest(".jgui-accordion")).unfold();
         $("#leftpanel").toggleClass("unfold");
         $("#folderbtn").toggleClass("icon-menu-unfold icon-menu-fold");
         return;

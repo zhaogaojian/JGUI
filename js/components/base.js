@@ -27,3 +27,7 @@ function stopPropagation(e) {
     e.stopPropagation();
   }
 }
+var JGUI = J = {
+  version : '0.01',
+  $ : Window.jQuery
+};

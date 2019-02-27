@@ -3,14 +3,13 @@ $('#folderbtn').click(function(event) {
         $('#leftpanel').width(50);
         $('#centerpanel').css('left','50px');
         $('#mainlogo').html('J');
-        $('#menuaccordion').jAccordionfold();
-        
+        J.Accordion.fold($('#menuaccordion'));
     }
     else{
         $('#leftpanel').width(300);
         $('#centerpanel').css('left','300px');
         $('#mainlogo').html('JGUI DEMO');
-        $('#menuaccordion').jAccordionunfold();
+        J.Accordion.unfold($('#menuaccordion'));
     }
     $('#leftpanel').toggleClass('unfold');
     $('#folderbtn').toggleClass('icon-menu-unfold icon-menu-fold');
@@ -20,7 +19,7 @@ $("#menuaccordion .jgui-accordion-navitem").click(function(event) {
         $('#leftpanel').width(300);
         $('#centerpanel').css('left','300px');
         $('#mainlogo').html('JGUI DEMO');
-        $('#menuaccordion').jAccordionunfold();
+        J.Accordion.unfold($('#menuaccordion'));
         $('#leftpanel').toggleClass('unfold');
         $('#folderbtn').toggleClass('icon-menu-unfold icon-menu-fold');
     }

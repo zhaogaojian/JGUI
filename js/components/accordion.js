@@ -64,7 +64,10 @@ $(".jgui-accordion").on(mousewheel, function(event) {
     var handle = function() {
       var step = Math.floor(obj.height() / 10); //可视区高度
       var cur_top = obj.scrollTop(); //当前滚过的高度
-      if (new Date().valueOf() - datas._startmousewheeldatetime > 100 && datas._sumdelta != 0) {
+      if (
+        new Date().valueOf() - datas._startmousewheeldatetime > 100 &&
+        datas._sumdelta != 0
+      ) {
         //100ms内没有移动滚轮
         direction = datas._sumdelta;
         datas._sumdelta = 0;
@@ -87,7 +90,6 @@ $(".jgui-accordion").on(mousewheel, function(event) {
   }
   stopPropagation(event);
 });
-
 //手机端鼠标拖动事件
 $(".jgui-accordion").on("touchstart", function(e) {
   startY = e.originalEvent.changedTouches[0].pageY;
@@ -101,40 +103,56 @@ $(".jgui-accordion").on("touchmove", function(e) {
     .stop()
     .animate({ scrollTop: -Y + cur_top }, 0);
 });
-$.fn.jAccordion = function(p_options, p_datas, p_param) {
-  return this.each(function() {
-    var obj = $(this);
-    var datas = $.extend(
-      {
-        _sumdelta: 0,
-        _mouseintervalhandle: undefined,
-        _startmousewheeldatetime:null
-      },
-      p_datas
-    );
-    obj.data("datas", datas);
-  });
-};
-//这里只获取第一层navitem就可以，回头代码需要改进
-//折叠
-$.fn.jAccordionfold = function() {
-  return this.each(function() {
-    var obj = $(this);
-    obj.find('.jgui-accordion-navitem').siblings("dd").slideUp();
-    obj.find('.jgui-accordion-navitem span').hide();
-    obj.find('.jgui-accordion-navitem .jgui-accordion-navitem-more').hide();
-  });
-};
-//展开
-$.fn.jAccordionunfold = function() {
-  return this.each(function() {
-    var obj = $(this);
-    obj.find('.jgui-accordion-navitem-more.expanded').closest(".jgui-accordion-navitem").siblings("dd").slideDown();
-    obj.find('.jgui-accordion-navitem span').show();
-    obj.find('.jgui-accordion-navitem .jgui-accordion-navitem-more').show();
-  });
-};
-$(".jgui-accordion").jAccordion();
+//Accordion封装
+J.Accordion = (function($) {
+  init = function(selector, p_options, p_datas, p_param) {
+    return selector.each(function() {
+      var datas = selector.extend(
+        {
+          _sumdelta: 0,
+          _mouseintervalhandle: undefined,
+          _startmousewheeldatetime: null
+        },
+        p_datas
+      );
+      selector.data("datas", datas);
+    });
+  };
+  //这里只获取第一层navitem就可以，回头代码需要改进
+  //折叠
+  fold = function(selector) {
+    return selector.each(function() {
+      selector
+        .find(".jgui-accordion-navitem")
+        .siblings("dd")
+        .slideUp();
+      selector.find(".jgui-accordion-navitem span").hide();
+      selector
+        .find(".jgui-accordion-navitem .jgui-accordion-navitem-more")
+        .hide();
+    });
+  };
+  //展开
+  unfold = function(selector) {
+    return selector.each(function() {
+      selector
+        .find(".jgui-accordion-navitem-more.expanded")
+        .closest(".jgui-accordion-navitem")
+        .siblings("dd")
+        .slideDown();
+      selector.find(".jgui-accordion-navitem span").show();
+      selector
+        .find(".jgui-accordion-navitem .jgui-accordion-navitem-more")
+        .show();
+    });
+  };
+  return {
+    init: init,
+    fold: fold,
+    unfold: unfold
+  };
+})(J.$);
+J.Accordion.init($(".jgui-accordion")); //(".jgui-accordion").init();
 
 //使用css3实现
 // //手机端鼠标拖动事件

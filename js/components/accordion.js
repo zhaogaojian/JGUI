@@ -107,6 +107,7 @@ $(function() {
       .stop()
       .animate({ scrollTop: -Y + cur_top }, 0);
   });
+  J.Accordion.init($(".jgui-accordion"));
 });
 //Accordion封装
 J.Accordion = (function($) {
@@ -156,7 +157,7 @@ J.Accordion = (function($) {
     unfold: unfold
   };
 })(J.$);
-J.Accordion.init($(".jgui-accordion")); //(".jgui-accordion").init();
+ //(".jgui-accordion").init();
 
 //使用css3实现
 // //手机端鼠标拖动事件

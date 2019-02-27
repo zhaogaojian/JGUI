@@ -3,7 +3,7 @@ $(function () {
   //电脑端中键滚动事件
   var mousewheel =
     getBrowserInfo() == "Firefox" ? "DOMMouseScroll" : "mousewheel";
-   $(".jgui-accordion").on(mousewheel, function (event) {
+  $(".jgui-accordion").on(mousewheel, function (event) {
     var delta = 0;
     var direction = 0;
     if (!event)
@@ -56,7 +56,8 @@ $(function () {
   J.Accordion = function ($p_selector) {
     init = function (p_options, p_datas, p_param) {
       return $p_selector.each(function () {
-        var datas = $p_selector.extend(
+        var $accordion = $(this);
+        var datas = $accordion.extend(
           {
             _sumdelta: 0,
             _mouseintervalhandle: undefined,
@@ -67,99 +68,100 @@ $(function () {
         var events = {
           onNavItemClick: undefined
         };
-        $p_selector.data("datas", datas);
-        $p_selector.data("events", events);
+        $accordion.data("datas", datas);
+        $accordion.data("events", events);
         //Accordion目录点击绑定
-        $p_selector.find("dt.jgui-accordion-navitem").unbind("click"); //先解绑
-        $p_selector.find("dt.jgui-accordion-navitem").click(function (event) {
-          if ($p_selector.data("events").onNavItemClick != undefined) {
-            var ret=$p_selector.data("events").onNavItemClick(this);
-            if(ret==false)return;
+        $accordion.find("dt.jgui-accordion-navitem").unbind("click"); //先解绑
+        $accordion.find("dt.jgui-accordion-navitem").click(function (event) {
+          var $accordionnavitem = $(this);
+          if ($accordion.data("events").onNavItemClick != undefined) {
+            var ret = $accordion.data("events").onNavItemClick(this);
+            if (ret == false) return;
           }
-          $(this).removeClass("selected");
-          $(this)
-            .siblings("dd")
-            .slideToggle(300, function () {
-              if ($(this).is(":hidden")) {
-                $(this)
-                  .siblings("dt")
-                  .children()
-                  .children(".jgui-accordion-navitem-more")
-                  .removeClass("expanded", 0);
-              } else {
-                $(this)
-                  .siblings("dt")
-                  .children()
-                  .children(".jgui-accordion-navitem-more")
-                  .addClass("expanded", 0);
-              }
-            });
-          $(this)
+          $accordionnavitem.removeClass("selected");
+          $accordionnavitem.siblings("dd").slideToggle(300, function () {
+            $dd = $(this);
+            if ($dd.is(":hidden")) {
+              $dd
+                .siblings("dt")
+                .children()
+                .children(".jgui-accordion-navitem-more")
+                .removeClass("expanded", 0);
+            } else {
+              $dd
+                .siblings("dt")
+                .children()
+                .children(".jgui-accordion-navitem-more")
+                .addClass("expanded", 0);
+            }
+          });
+          $accordionnavitem
             .closest(".jgui-accordion")
             .find(".jgui-accordion-navitem")
             .removeClass("selected");
-          $(this)
+          $accordionnavitem
             .closest(".jgui-accordion")
             .find(".jgui-accordion-navitem-child")
             .removeClass("selected");
-          $(this).addClass("selected");
+          $accordionnavitem.addClass("selected");
           stopPropagation(event);
         });
         //Accordion内容条目点击绑定
-        $p_selector.find(".jgui-accordion-navitem-child").unbind("click");
-        $p_selector.find(".jgui-accordion-navitem-child").click(function (event) {
-          $(this)
+        $accordion.find(".jgui-accordion-navitem-child").unbind("click");
+        $accordion.find(".jgui-accordion-navitem-child").click(function (event) {
+          var $accordionnavitemchild = $(this);
+          $accordionnavitemchild
             .closest(".jgui-accordion")
             .find(".jgui-accordion-navitem")
             .removeClass("selected");
-          $(this)
+          $accordionnavitemchild
             .closest(".jgui-accordion")
             .find(".jgui-accordion-navitem-child")
             .removeClass("selected");
-          $(this).addClass("selected");
+          $accordionnavitemchild.addClass("selected");
           stopPropagation(event);
         });
         //手机端鼠标拖动事件,手机端可以屏蔽下面改成用css3隐藏滚动条，毕竟手机端不用考虑兼容性
-        $p_selector.unbind("touchstart");
-        $p_selector.on("touchstart", function (e) {
+        $accordion.unbind("touchstart");
+        $accordion.on("touchstart", function (e) {
           startY = e.originalEvent.changedTouches[0].pageY;
         });
-        $p_selector.unbind("touchmove");
-        $p_selector.on("touchmove", function (e) {
+        $accordion.unbind("touchmove");
+        $accordion.on("touchmove", function (e) {
           e.preventDefault();
           (moveEndY = e.originalEvent.changedTouches[0].pageY),
             (Y = moveEndY - startY);
           startY = moveEndY;
-          var cur_top = $(this).scrollTop(); //当前滚过的高度
-          $(this)
-            .stop()
-            .animate({ scrollTop: -Y + cur_top }, 0);
+          var cur_top = $accordion.scrollTop(); //当前滚过的高度
+          $accordion.stop().animate({ scrollTop: -Y + cur_top }, 0);
         });
       });
     };
-    //折叠
+    //折叠成工具条样式
     fold = function () {
       return $p_selector.each(function () {
-        $p_selector
+        var $accordion = $(this);
+        $accordion
           .find(".jgui-accordion-navitem")
           .siblings("dd")
           .slideUp();
-        $p_selector.find(".jgui-accordion-navitem span").hide();
-        $p_selector
+        $accordion.find(".jgui-accordion-navitem span").hide();
+        $accordion
           .find(".jgui-accordion-navitem .jgui-accordion-navitem-more")
           .hide();
       });
     };
-    //展开
+    //展开成面板样式
     unfold = function () {
       return $p_selector.each(function () {
-        $p_selector
+        var $accordion = $(this);
+        $accordion
           .find(".jgui-accordion-navitem-more.expanded")
           .closest(".jgui-accordion-navitem")
           .siblings("dd")
           .slideDown();
-        $p_selector.find(".jgui-accordion-navitem span").show();
-        $p_selector
+        $accordion.find(".jgui-accordion-navitem span").show();
+        $accordion
           .find(".jgui-accordion-navitem .jgui-accordion-navitem-more")
           .show();
       });
@@ -169,9 +171,8 @@ $(function () {
       fold: fold,
       unfold: unfold
     };
-    
-  }
-})(J.$);//这样写后，函数内部就会使用J.$对应的选择器
+  };
+})(J.$); //这样写后，函数内部就会使用J.$对应的选择器
 //(".jgui-accordion").init();
 
 //使用css3实现

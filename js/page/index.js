@@ -16,7 +16,7 @@ $(function() {
     $("#leftpanel").toggleClass("unfold");
     $("#folderbtn").toggleClass("icon-menu-unfold icon-menu-fold");
   });
-
+  //NavItem点击事件
  var events = $('#menuaccordion').data("events");
  events.onNavItemClick=function (obj)
   {

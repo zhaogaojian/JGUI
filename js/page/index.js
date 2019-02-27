@@ -17,7 +17,7 @@ $(function() {
     $("#folderbtn").toggleClass("icon-menu-unfold icon-menu-fold");
   });
 
- var events = $('#menuaccordion').attr("events");
+ var events = $('#menuaccordion').data("events");
  events.onNavItemClick=function (obj)
   {
      

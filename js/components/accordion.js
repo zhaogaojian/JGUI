@@ -16,7 +16,7 @@ $(function() {
       delta = -event.originalEvent.detail / 3;
     }
     if (delta) {
-      var datas = $(this).datas;
+      var datas = $(this).data("datas");
       datas._sumdelta += delta > 0 ? -1 : 1;
       datas._startmousewheeldatetime = new Date().valueOf();
       var $obj = $(this);
@@ -81,8 +81,8 @@ J.Accordion = (function() {
       var events = {
         onNavItemClick:undefined
         };
-      $p_selector.attr("datas", datas);
-      $p_selector.attr("events", events);
+      $p_selector.data("datas", datas);
+      $p_selector.data("events", events);
       //目录点击事件
       $p_selector.find("dt.jgui-accordion-navitem").unbind('click');//先解绑
       $p_selector.find("dt.jgui-accordion-navitem").click(function(event) {

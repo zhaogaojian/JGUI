@@ -3,7 +3,7 @@ $(function () {
   //电脑端中键滚动事件
   var mousewheel =
     getBrowserInfo() == "Firefox" ? "DOMMouseScroll" : "mousewheel";
-  $(".jgui-accordion").on(mousewheel, function (event) {
+   $(".jgui-accordion").on(mousewheel, function (event) {
     var delta = 0;
     var direction = 0;
     if (!event)
@@ -73,7 +73,8 @@ $(function () {
         $p_selector.find("dt.jgui-accordion-navitem").unbind("click"); //先解绑
         $p_selector.find("dt.jgui-accordion-navitem").click(function (event) {
           if ($p_selector.data("events").onNavItemClick != undefined) {
-            $p_selector.data("events").onNavItemClick(this);
+            var ret=$p_selector.data("events").onNavItemClick(this);
+            if(ret==false)return;
           }
           $(this).removeClass("selected");
           $(this)

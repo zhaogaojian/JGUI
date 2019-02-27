@@ -20,15 +20,14 @@ $(function() {
  var events = $('#menuaccordion').data("events");
  events.onNavItemClick=function (obj)
   {
-     
-    if (!$("#leftpanel").is(".unfold")) {//折叠状态展开
+      if (!$("#leftpanel").is(".unfold")) {//折叠状态展开
         $("#leftpanel").width(300);
         $("#centerpanel").css("left", "300px");
         $("#mainlogo").html("JGUI DEMO");
         J.Accordion($(obj).closest(".jgui-accordion")).unfold();
         $("#leftpanel").toggleClass("unfold");
         $("#folderbtn").toggleClass("icon-menu-unfold icon-menu-fold");
-        return;
+        return false;
       }
   };
 });

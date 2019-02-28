@@ -54,6 +54,7 @@ $(function () {
 //Accordion封装
 (function ($) {
   J.Accordion = function ($p_selector) {
+    //初始化
     init = function (p_options, p_datas, p_param) {
       return $p_selector.each(function () {
         var $accordion = $(this);

@@ -76,7 +76,7 @@ $(function () {
         $accordion.find("dt.jgui-accordion-navitem").click(function (event) {
           var $accordionnavitem = $(this);
           if ($accordion.data("events").onNavItemClick != undefined) {
-            var ret = $accordion.data("events").onNavItemClick(this);
+            var ret = $accordion.data("events").onNavItemClick(this,"navitem");
             if (ret == false) return;
           }
           $accordionnavitem.removeClass("selected");
@@ -111,6 +111,10 @@ $(function () {
         $accordion.find(".jgui-accordion-navitem-child").unbind("click");
         $accordion.find(".jgui-accordion-navitem-child").click(function (event) {
           var $accordionnavitemchild = $(this);
+          if ($accordion.data("events").onNavItemClick != undefined) {
+            var ret = $accordion.data("events").onNavItemClick(this,"navitemchild");
+            if (ret == false) return;
+          }
           $accordionnavitemchild
             .closest(".jgui-accordion")
             .find(".jgui-accordion-navitem")

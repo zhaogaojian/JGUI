@@ -4,12 +4,18 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=IE7" />
+    <meta http-equiv="X-UA-Compatible" content="IE=IE8" />
     <title>JGUI - 从零开始（学习心得）</title>
     <script type="text/javascript" src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/jqueryui@1.11.1/jquery-ui.js"></script>
+    
     <link rel="stylesheet" href="./css/jgui.css" type="text/css">
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="bookmark" href="/favicon.ico" />
+    
+    <!--[if lte IE 7 ]>
+	<script type="text/javascript" src="/js/third/border-box.js"></script>
+    <![endif]-->
     <!--[if lt IE 9]>
     <script type="text/javascript" src="/js/third/html5.js"></script>
     <script type="text/javascript" src="/js/third/css3-mediaqueries.js"></script>
@@ -39,10 +45,10 @@
                             </a>
                         </dt>
                         <dd class="jgui-accordion-navitem-child" style="display: none;">
-                            <a>子项1</a>
+                            <a>首页</a>
                         </dd>
                         <dd class="jgui-accordion-navitem-child" style="display: none;">
-                            <a>子项2</a>
+                            <a>按钮控件</a>
                         </dd>
                     </dl>
                 </ul>
@@ -59,26 +65,26 @@
                             <dl>
                                 <dt class="jgui-accordion-navitem">
                                     <a>
-                                        <span>子目录1</span>
+                                        <span>子目录2-1</span>
                                         <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
-                                    <a>子项1</a>
+                                    <a>子项2-1-1</a>
                                 </dd>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
-                                    <a>子项2</a>
+                                    <a>子项2-1-2</a>
                                 </dd>
                             </dl>
                         </dd>
                         <dd class="jgui-accordion-navitem-child">
-                            <a>子项1</a>
+                            <a>子项2-1</a>
                         </dd>
                         <dd class="jgui-accordion-navitem-child">
-                            <a>子项2</a>
+                            <a>子项2-2</a>
                         </dd>
                         <dd class="jgui-accordion-navitem-child">
-                            <a>子项3</a>
+                            <a>子项2-3</a>
                         </dd>
                     </dl>
                 </ul>
@@ -95,26 +101,26 @@
                             <dl>
                                 <dt class="jgui-accordion-navitem">
                                     <a>
-                                        <span>子目录1</span>
+                                        <span>子目录3-1</span>
                                         <i class="jgui-accordion-navitem-more"></i>
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
-                                    <a>子项1</a>
+                                    <a>子项3-1-1</a>
                                 </dd>
                                 <dd class="jgui-accordion-navitem-child"  style="display: none;">
-                                    <a>子项2</a>
+                                    <a>子项3-1-2</a>
                                 </dd>
                             </dl>
                         </dd>
                         <dd class="jgui-accordion-navitem-child">
-                            <a>子项1</a>
+                            <a>子项3-1</a>
                         </dd>
                         <dd class="jgui-accordion-navitem-child">
-                            <a>子项2</a>
+                            <a>子项3-2</a>
                         </dd>
                         <dd class="jgui-accordion-navitem-child">
-                            <a>子项3</a>
+                            <a>子项3-3</a>
                         </dd>
                     </dl>
                 </ul>
@@ -963,7 +969,7 @@
     </div>
     <div class="jgui-page-center" id="centerpanel">
         <div class="jgui-page-top">
-            <div class="anticon icon-menu-unfold jgui-folderbtn"  id="folderbtn"></div>
+            <div class="icon anticon icon-menufold jgui-folderbtn"  id="folderbtn"></div>
             <div class="jgui-btn" style="float:right;">
                 <div>
                     <img src="./images/head.jpg"></img>
@@ -972,28 +978,10 @@
                 </div>
             </div>
         </div>
-        <div class="jgui-page-tab" style="visibility:show">
+        <div class="jgui-tab" style="visibility:show" id="pagetab">
             <div class="anticon icon-doubleleft jgui-tab-pre"></div>
             <div class="jgui-tabcontent">
                 <a class="jgui-tabitem"><i class="anticon icon-home jgui-tab-item-icon"></i><span>首页</span><i class="anticon icon-close jgui-tab-close" style="visibility:hidden"></i></a>
-                <a class="jgui-tabitem selected"><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>图片控件</span><i class="anticon icon-close jgui-tab-close"></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>日期控件</span><i class=" anticon icon-close jgui-tab-close "></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>图片控件</span><i class="anticon icon-close jgui-tab-close"></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>日期控件</span><i class=" anticon icon-close jgui-tab-close "></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>图片控件</span><i class="anticon icon-close jgui-tab-close"></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>日期控件</span><i class=" anticon icon-close jgui-tab-close "></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>图片控件</span><i class="anticon icon-close jgui-tab-close"></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>日期控件</span><i class=" anticon icon-close jgui-tab-close "></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>图片控件</span><i class="anticon icon-close jgui-tab-close"></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>日期控件</span><i class=" anticon icon-close jgui-tab-close "></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>图片控件</span><i class="anticon icon-close jgui-tab-close"></i></a>
-                <a class="jgui-tabitem"><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>日期控件</span><i class=" anticon icon-close jgui-tab-close "></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>图片控件</span><i class="anticon icon-close jgui-tab-close"></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>日期控件</span><i class=" anticon icon-close jgui-tab-close "></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>图片控件</span><i class="anticon icon-close jgui-tab-close"></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>日期控件</span><i class=" anticon icon-close jgui-tab-close "></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>图片控件</span><i class="anticon icon-close jgui-tab-close"></i></a>
-                <a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>日期控件</span><i class=" anticon icon-close jgui-tab-close "></i></a>
             </div>
             <div class="anticon icon-doubleright jgui-tab-next"></div>
         </div>

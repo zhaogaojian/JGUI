@@ -7,6 +7,8 @@
     margin-right: 20px;
     cursor: pointer;
     user-select: none;
+    vertical-align:center;
+    
   }
   .jgui-btn div {
     position: relative;
@@ -39,6 +41,7 @@
     left: 100%;
     text-align: center;
     margin-top: -2px;
+    *margin-top: -8px;
   }
   .jgui-folderbtn {
     font-size: 16px;

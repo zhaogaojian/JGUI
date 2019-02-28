@@ -53,6 +53,7 @@
   display: inline-block;
   line-height: 45px;
   font-size:0;
+  box-sizing: border-box;
 }
 .jgui-tabitem {
   display: inline-block;
@@ -80,6 +81,7 @@
   padding: 0px 5px;
 }
 .jgui-tabitem.selected {
+  zoom: 1;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-bottom: 3px solid #008888;
@@ -87,9 +89,12 @@
   border-right: 1px solid #eeeeee;
   top: 0px;
   color: #008888;
+  -webkit-transition:color 2s;
+  transition:color 2s;
 }
 .jgui-tabitem:hover
 {
+  zoom:1;
   color: #04cccc;
   -webkit-transition:color 0.5s;
   transition:color 0.5s;

@@ -26,19 +26,20 @@ $(function () {
             .siblings(".jgui-tabitem")
             .removeClass("selected");
           $(this).addClass("selected");
+          //更新样式
+          var href = $(this).data('href');
+          var target="#"+ $(this).data('frame');
+          if(href!="undefined")
+          $(target).attr('src', href);
         });
         $this.find(".jgui-tabitem .jgui-tab-close").unbind('click').click(function(event) {
-          $(this)
-            .closest(".jgui-tabitem").siblings(".jgui-tabitem").first().click();
+         var $pre=$(this)
+          .closest(".jgui-tabitem").prev();
+          
           $(this)
             .closest(".jgui-tabitem")
             .remove();
-            return false;
-        });
-        $this.find(".jgui-tabitem").unbind('click').click(function(event) {
-          var href = $(this).data('href');
-          var target="#"+ $(this).attr('target');
-          $(target).attr('src', href);
+            $pre.trigger("click");
         });
       });
     };

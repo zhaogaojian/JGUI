@@ -45,9 +45,9 @@ $(function() {
         });
       if ($findTab == undefined) {
         var appentHtml =
-          '<a class="jgui-tabitem" href="javascript:void(0);"  data-href="'+href+'" target="pageiframe"><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>' +
+          '<div class="jgui-tabitem"  data-href="'+href+'" data-frame="pageiframe"><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>' +
           text +
-          '</span><i class=" anticon icon-close jgui-tab-close "></i></a>';
+          '</span><i class=" anticon icon-close jgui-tab-close "></i></div>';
           $("#pagetab .jgui-tabcontent").append(appentHtml);
           J.JTab($("#pagetab")).init();
           $findTab=$("#pagetab .jgui-tabcontent .jgui-tabitem:last-child");
@@ -69,8 +69,10 @@ $(function() {
                   .animate({ scrollLeft: left+(objright-$tabcontent.width())+objwidth }, 200);
       }
       $findTab.trigger("click");
+      
+      if(href!=undefined)
+      $('#pageiframe').attr('src', href);
     }
-    $('#pageiframe').attr('src', href);
     return true;
   };
 });

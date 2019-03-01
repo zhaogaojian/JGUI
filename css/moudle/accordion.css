@@ -3,68 +3,43 @@
   color: #ffffff;
 }
 .jgui-accordion {
-  padding: 0;
   color: #cccccc;
   position: relative;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
-  -webkit-user-select: none;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  padding: 1px;
 }
 .jgui-accordion-list {
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-duration: 1ms;
-  transition-duration: 1ms;
-  -webkit-transition-timing-function: ease;
-  transition-timing-function: ease;
-  -webkit-transition-delay: 1ms;
-  transition-delay: 1ms;
   position: relative;
-  zoom: 1;
-  border: none;
+  box-sizing: border-box;
 }
 .jgui-accordion.itemhover {
   color: #ffffff;
-}
-.jgui-accordion ul {
-  position: relative;
 }
 .jgui-accordion-navitem {
   line-height: 50px;
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  zoom: 1;
-  border-left: 2px solid #00888800;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-.jgui-accordion-navitem:hover:before,.jgui-accordion-navitem-child.leaf:hover:before {
+.jgui-accordion-navitem:hover:before{
   content: "";
-  padding-right: 5px;
   position: absolute;
   left: 0;
   top: 0;
-  width: 5px;
   height: 100%;
-  border-left-color: #008888;
-  border-left-style: solid;
-  border-left-width: 5px;
+  border-right-color: #008888;
+  border-right-style: solid;
+  border-right-width: 2px;
   pointer-events: none;
+  box-sizing: border-box;
 }
 .jgui-accordion-navitem-child {
   line-height: 40px;
-  background-color: #151515;
-  -webkit-margin-start: 0px;
-  margin-inline-start: 0px;
+  background-color: #121212;
   cursor: pointer;
   position: relative;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  zoom: 1;
 }
 .jgui-accordion-navitem a {
   padding-left: 15px;
@@ -103,16 +78,12 @@
   border-right-color: transparent;
   border-top-color: transparent;
   border-bottom-color: #fff;
-  /* border-color: transparent transparent  #fff transparent; */
-  /* border-color: transparent transparent #fff transparent; */
   top: 50%;
   position: absolute;
   text-align: center;
   right: 10px;
   transition: all 0.2s;
-  -webkit-transition: all 0.2s;
   margin-top: -10px;
-  zoom: 1;
 }
 .jgui-accordion-navitem-more.expanded {
   border-style: solid solid solid solid;

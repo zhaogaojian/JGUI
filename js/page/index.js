@@ -52,27 +52,23 @@ $(function() {
           $("#pagetab .jgui-tabcontent").append(appentHtml);
           J.JTab($("#pagetab")).init();
           $findTab=$("#pagetab .jgui-tabcontent .jgui-tabitem:last-child");
-          $findTab.trigger("click");
       }
-      else
+      var left=$tabcontent.scrollLeft();
+      var objleft=$findTab.offset().left-$('#menuaccordion').width()-50;//50是左右按钮的宽度
+      var objwidth=$findTab.width();
+      console.log(left+','+objleft+','+$tabcontent.width());
+      if(objleft<0)//跑到左边了
       {
-        $findTab.trigger("click");
-        var left=$tabcontent.scrollLeft();
-        var objleft=$findTab.offset().left-$('#menuaccordion').width();
-        var objwidth=$findTab.width();
-        console.log(left+','+objleft+','+$tabcontent.width());
-        if(objleft<0)//跑到左边了
-        {
-          $tabcontent
-                   .stop()
-                   .animate({ scrollLeft: left+objleft-100 }, 200);
-        }else if(objleft>$tabcontent.width())
-        {
-          $tabcontent
-                   .stop()
-                   .animate({ scrollLeft: left+(objleft-$tabcontent.width())+objwidth+100 }, 200);
-        }
+        $tabcontent
+                  .stop()
+                  .animate({ scrollLeft: left+objleft-objwidth }, 200);
+      }else if(objleft>$tabcontent.width())
+      {
+        $tabcontent
+                  .stop()
+                  .animate({ scrollLeft: left+(objleft-$tabcontent.width())+objwidth+objwidth }, 200);
       }
+      $findTab.trigger("click");
     }
     return true;
   };

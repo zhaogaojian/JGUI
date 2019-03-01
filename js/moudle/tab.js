@@ -29,8 +29,16 @@ $(function () {
         });
         $this.find(".jgui-tabitem .jgui-tab-close").unbind('click').click(function(event) {
           $(this)
+            .closest(".jgui-tabitem").siblings(".jgui-tabitem").first().click();
+          $(this)
             .closest(".jgui-tabitem")
             .remove();
+            return false;
+        });
+        $this.find(".jgui-tabitem").unbind('click').click(function(event) {
+          var href = $(this).data('href');
+          var target="#"+ $(this).attr('target');
+          $(target).attr('src', href);
         });
       });
     };

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>JGUI - 从零开始（学习心得）</title>
+    <script type="text/javascript" src="/js/third/jquery.min.js"></script>
+    <script type="text/javascript" src='/js/third/prefixfree.min.js'></script>
+    <link rel="stylesheet" href="/css/page/common.css" type="text/css">
+    <link rel="stylesheet" href="/css/jgui.css" type="text/css">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="bookmark" href="/favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/third/html5.js"></script>
+    <script type="text/javascript" src="/js/third/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?bac88ac9a169826a551fcfde47e1753d";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>        
+</head>
+<body>
+    <div class="page-left unfold" id="leftpanel">
+        <div class="jgui-accordion" style="width:100%;overflow: hidden;position: absolute;top:0px;left:0px;right: 0px;bottom:10px;" id="menuaccordion">
+            <div class="jgui-accordion-list">
+                <ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-home"></i>
+                                <span>目录1</span>
+                                <i class="jgui-accordion-navitem-more"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child leaf" style="display: none;">
+                            <a data-href="/demo/home.html">首页</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf" style="display: none;">
+                            <a data-href="/demo/according.html">抽屉控件</a>
+                        </dd>
+                    </dl>
+                </ul>
+                <ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录2</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录2-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项2-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项2-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项2-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项2-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项2-3</a>
+                        </dd>
+                    </dl>
+                </ul>
+                <ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul>
+                <ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul><ul>
+                    <dl>
+                        <dt class="jgui-accordion-navitem">
+                            <a>
+                                <i class="anticon  icon-codepen"></i>
+                                <span>目录3</span>
+                                <i class="jgui-accordion-navitem-more expanded"></i>
+                            </a>
+                        </dt>
+                        <dd class="jgui-accordion-navitem-child">
+                            <dl>
+                                <dt class="jgui-accordion-navitem">
+                                    <a>
+                                        <span>子目录3-1</span>
+                                        <i class="jgui-accordion-navitem-more"></i>
+                                    </a>
+                                </dt>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-1</a>
+                                </dd>
+                                <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
+                                    <a>子项3-1-2</a>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-1</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-2</a>
+                        </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                            <a>子项3-3</a>
+                        </dd>
+                    </dl>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="/js/jgui.all.js?v=20190227"></script>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
-@import url("../font/iconfont/iconfont.css");
-@import url("./moudle/base.css");
-@import url("./moudle/accordion.css");
-@import url("./moudle/button.css");
-@import url("./moudle/tab.css");
-@import url("./page/common.css");
+@import url("/font/iconfont/iconfont.css");
+@import url("/css/moudle/base.css");
+@import url("/css/moudle/accordion.css");
+@import url("/css/moudle/button.css");
+@import url("/css/moudle/tab.css");
+@import url("/css/page/common.css");

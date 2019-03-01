@@ -31,9 +31,8 @@ $(function() {
     } else if (p_type == "navitemchildleaf") {
       //点击了子项叶节点
       $tabcontent=$("#pagetab .jgui-tabcontent");
-      var text = $(p_obj)
-        .find("a")
-        .html();
+      var text = $(p_obj).find("a").html();
+      var href = $(p_obj).find('a').data('href');
       var $findTab = undefined;
       $tabcontent
         .find("span")
@@ -46,7 +45,7 @@ $(function() {
         });
       if ($findTab == undefined) {
         var appentHtml =
-          '<a class="jgui-tabitem "><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>' +
+          '<a class="jgui-tabitem" href="javascript:void(0);"  data-href="'+href+'" target="pageiframe"><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>' +
           text +
           '</span><i class=" anticon icon-close jgui-tab-close "></i></a>';
           $("#pagetab .jgui-tabcontent").append(appentHtml);
@@ -71,6 +70,7 @@ $(function() {
       }
       $findTab.trigger("click");
     }
+    $('#pageiframe').attr('src', href);
     return true;
   };
 });

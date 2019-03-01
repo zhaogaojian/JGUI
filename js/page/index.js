@@ -28,8 +28,8 @@ $(function() {
       $("#leftpanel").toggleClass("unfold");
       $("#folderbtn").toggleClass("icon-menu-unfold", "icon-menu-fold");
       return false;
-    } else if (p_type == "navitemchild") {
-      //点击了子项
+    } else if (p_type == "navitemchildleaf") {
+      //点击了子项叶节点
       $tabcontent=$("#pagetab .jgui-tabcontent");
       var text = $(p_obj)
         .find("a")

@@ -77,7 +77,10 @@ $(function () {
           var $accordionnavitem = $(this);
           if ($accordion.data("events").onNavItemClick != undefined) {
             var ret = $accordion.data("events").onNavItemClick(this,"navitem");
-            if (ret == false) return;
+            if (ret == false) {
+              stopPropagation(event);
+              return;
+            }
           }
           $accordionnavitem.removeClass("selected");
           $accordionnavitem.siblings("dd").slideToggle(300, function () {
@@ -102,18 +105,18 @@ $(function () {
             .removeClass("selected");
           $accordionnavitem
             .closest(".jgui-accordion")
-            .find(".jgui-accordion-navitem-child")
+            .find(".jgui-accordion-navitem-child.leaf")
             .removeClass("selected");
           $accordionnavitem.addClass("selected");
           stopPropagation(event);
         });
         //Accordion内容条目点击绑定
-        $accordion.find(".jgui-accordion-navitem-child").unbind("click");
-        $accordion.find(".jgui-accordion-navitem-child").click(function (event) {
+        $accordion.find(".jgui-accordion-navitem-child.leaf").unbind("click");
+        $accordion.find(".jgui-accordion-navitem-child.leaf").click(function (event) {
           var $accordionnavitemchild = $(this);
           if ($accordion.data("events").onNavItemClick != undefined) {
-            var ret = $accordion.data("events").onNavItemClick(this,"navitemchild");
-            if (ret == false) return;
+            $accordion.data("events").onNavItemClick(this,"navitemchildleaf");
+           
           }
           $accordionnavitemchild
             .closest(".jgui-accordion")
@@ -121,7 +124,7 @@ $(function () {
             .removeClass("selected");
           $accordionnavitemchild
             .closest(".jgui-accordion")
-            .find(".jgui-accordion-navitem-child")
+            .find(".jgui-accordion-navitem-child.leaf")
             .removeClass("selected");
           $accordionnavitemchild.addClass("selected");
           stopPropagation(event);

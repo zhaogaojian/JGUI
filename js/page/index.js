@@ -54,19 +54,20 @@ $(function() {
           $findTab=$("#pagetab .jgui-tabcontent .jgui-tabitem:last-child");
       }
       var left=$tabcontent.scrollLeft();
-      var objleft=$findTab.offset().left-$('#menuaccordion').width()-50;//50是左右按钮的宽度
+      var objleft=$findTab.offset().left-$('#menuaccordion').width()-50+left;//50是左右按钮的宽度
+      var objright=$findTab.offset().left-$('#menuaccordion').width()-50+left+$findTab.width();//50是左右按钮的宽度
       var objwidth=$findTab.width();
       console.log(left+','+objleft+','+$tabcontent.width());
-      if(objleft<0)//跑到左边了
+      if(objleft<0)//左边非可见区域
       {
         $tabcontent
                   .stop()
                   .animate({ scrollLeft: left+objleft-objwidth }, 200);
-      }else if(objleft>$tabcontent.width())
+      }else if(objright>$tabcontent.width())//右边非可见区域
       {
         $tabcontent
                   .stop()
-                  .animate({ scrollLeft: left+(objleft-$tabcontent.width())+objwidth+objwidth }, 200);
+                  .animate({ scrollLeft: left+(objright-$tabcontent.width())+objwidth }, 200);
       }
       $findTab.trigger("click");
     }

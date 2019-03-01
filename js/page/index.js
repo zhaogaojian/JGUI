@@ -14,7 +14,7 @@ $(function() {
       J.Accordion($("#menuaccordion")).unfold();
     }
     $("#leftpanel").toggleClass("unfold");
-    $(this).toggleClass("icon-menu-unfold", "icon-menu-fold");
+    $(this).toggleClass("icon-menuunfold", "icon-menufold");
   });
   //NavItem点击事件
   var events = $("#menuaccordion").data("events");
@@ -26,7 +26,7 @@ $(function() {
       $("#mainlogo").html("JGUI DEMO");
       J.Accordion($(p_obj).closest(".jgui-accordion")).unfold();
       $("#leftpanel").toggleClass("unfold");
-      $("#folderbtn").toggleClass("icon-menu-unfold", "icon-menu-fold");
+      $("#folderbtn").toggleClass("icon-menuunfold", "icon-menufold");
       return false;
     } else if (p_type == "navitemchildleaf") {
       //点击了子项叶节点

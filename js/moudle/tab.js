@@ -25,7 +25,7 @@ $(function () {
           $(this)
             .siblings(".jgui-tabitem")
             .removeClass("selected");
-          $(this).addClass("selected", 300);
+          $(this).addClass("selected");
         });
         $this.find(".jgui-tabitem .jgui-tab-close").unbind('click').click(function(event) {
           $(this)

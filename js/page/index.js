@@ -51,39 +51,27 @@ $(function() {
           '</span><i class=" anticon icon-close jgui-tab-close "></i></a>';
           $("#pagetab .jgui-tabcontent").append(appentHtml);
           J.JTab($("#pagetab")).init();
+          $findTab=$("#pagetab .jgui-tabcontent .jgui-tabitem:last-child");
+          $findTab.trigger("click");
       }
       else
       {
         $findTab.trigger("click");
         var left=$tabcontent.scrollLeft();
-        var objleft=$findTab.offset().left-400;
-        var objwidth=$findTab.width()*4;
+        var objleft=$findTab.offset().left-$('#menuaccordion').width();
+        var objwidth=$findTab.width();
         console.log(left+','+objleft+','+$tabcontent.width());
         if(objleft<0)//跑到左边了
         {
           $tabcontent
                    .stop()
-                   .animate({ scrollLeft: left+objleft }, 200);
+                   .animate({ scrollLeft: left+objleft-100 }, 200);
         }else if(objleft>$tabcontent.width())
         {
           $tabcontent
                    .stop()
-                   .animate({ scrollLeft: left+(objleft-$tabcontent.width())+objwidth }, 200);
+                   .animate({ scrollLeft: left+(objleft-$tabcontent.width())+objwidth+100 }, 200);
         }
-        // if(realeft<=400)
-        // {     $tabcontent
-        //         .stop()
-        //         .animate({ scrollLeft: realeft }, 200);
-        // }
-        // if(realeft>0)
-        // {
-          
-        //    $tabcontent
-        //      .stop()
-        //      .animate({ scrollLeft: objleft - left }, 200);
-        // }
-        
-        
       }
     }
     return true;

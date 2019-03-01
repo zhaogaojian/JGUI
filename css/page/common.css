@@ -24,7 +24,7 @@
     position: fixed;
     background-color: #222222;
   }
-  .jgui-page-left {
+  .page-left {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     background: #222222;
@@ -33,7 +33,7 @@
     position: fixed;
     bottom: 40px;
   }
-  .jgui-page-center {
+  .page-center {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     background: #ffffff;
@@ -43,7 +43,7 @@
     position: absolute;
     bottom: 0px;
   }
-  .jgui-page-top {
+  .page-top {
     background-color: #ffffff;
     height: 60px;
     border-bottom: 1px solid #f6f6f6;
@@ -52,7 +52,7 @@
     right: 0px;
     left: 0px;
   }
-  .jgui-page-bottom {
+  .page-bottom {
     background-color: #ffffff;
     height: 40px;
     border-bottom: 1px solid #f6f6f6;
@@ -64,7 +64,7 @@
     height: 40px;
     text-align: center;
   }
-  #pagetab {
+  .page-tab {
     zoom: 1;
     height: 45px;
     border-bottom: 1px solid #f6f6f6;
@@ -74,7 +74,7 @@
     left: 0px;
     box-sizing: border-box;
   }
-  .jgui-page-content {
+  .page-content {
     zoom: 1;
     position: absolute;
     top: 105px;

@@ -16,10 +16,10 @@ $(function() {
     $("#leftpanel").toggleClass("unfold");
     $(this).toggleClass("icon-menuunfold", "icon-menufold");
   });
-  //NavItem点击事件
+  //抽屉点击事件
   var events = $("#menuaccordion").data("events");
   events.onNavItemClick = function(p_obj, p_type) {
-    if (!$("#leftpanel").is(".unfold") && p_type == "navitem") {
+    if (!$("#leftpanel").is(".unfold") && p_type == "navitem") {//目录
       //折叠状态展开
       $("#leftpanel").width(300);
       $("#centerpanel").css("left", "300px");
@@ -28,8 +28,7 @@ $(function() {
       $("#leftpanel").toggleClass("unfold");
       $("#folderbtn").toggleClass("icon-menuunfold", "icon-menufold");
       return false;
-    } else if (p_type == "navitemchildleaf") {
-      //点击了子项叶节点
+    } else if (p_type == "navitemchildleaf") {//点击了抽屉叶节点
       $tabcontent=$("#pagetab .jgui-tabcontent");
       var text = $(p_obj).find("a").html();
       var href = $(p_obj).find('a').data('href');
@@ -39,18 +38,28 @@ $(function() {
         .each(function() {
          var $this = $(this);
            if ($this.html() == text) {
-             $findTab = $this;
+             $findTab = $this.closest(".jgui-tabitem");
              return;
            }
         });
+        var isnewpage=false;
       if ($findTab == undefined) {
+        iframePageCount++;
         var appentHtml =
-          '<div class="jgui-tabitem"  data-href="'+href+'" data-frame="pageiframe"><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>' +
+          '<a class="jgui-tabitem"  data-href="'+href+'" data-target="pageiframe'+iframePageCount+'"><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>' +
           text +
-          '</span><i class=" anticon icon-close jgui-tab-close "></i></div>';
+          '</span><i class=" anticon icon-close jgui-tab-close "></i></a>';
           $("#pagetab .jgui-tabcontent").append(appentHtml);
           J.JTab($("#pagetab")).init();
-          $findTab=$("#pagetab .jgui-tabcontent .jgui-tabitem:last-child");
+          $findTab=$("#pagetab .jgui-tabcontent .jgui-tabitem").last();
+          $('.page-content').append('<iframe  class="page-iframe" id="pageiframe'+iframePageCount+'" name="pageiframe'+iframePageCount+'" src="'+href+'" frameborder="0"></iframe>');
+          isnewpage=true;
+          //监听TabItem点击事件
+          var tabItemEvents=$('#pagetab').data("events");
+          tabItemEvents.onTabItemClick = function(p_obj, target) {
+            $('.page-content iframe').css('visibility','hidden');
+            $(target).css('visibility','visible');
+          }
       }
       var left=$tabcontent.scrollLeft();
       var objleft=$findTab.offset().left-$tabcontent.offset().left-50;//50是左右按钮的宽度
@@ -59,20 +68,18 @@ $(function() {
       console.log(left+','+objleft+','+$tabcontent.width());
       if(objleft<0)//左边非可见区域
       {
-        $tabcontent
-                  .stop()
-                  .animate({ scrollLeft: left+objleft-objwidth }, 200);
+        $tabcontent.stop().animate({ scrollLeft: left+objleft-objwidth }, 200);
       }else if(objright>$tabcontent.width())//右边非可见区域
       {
-        $tabcontent
-                  .stop()
-                  .animate({ scrollLeft: left+(objright-$tabcontent.width())+objwidth }, 200);
+        $tabcontent.stop().animate({ scrollLeft: left+(objright-$tabcontent.width())+objwidth }, 200);
       }
       $findTab.trigger("click");
-      
-      if(href!=undefined)
-      $('#pageiframe').attr('src', href);
+      var target="#"+ $findTab.data('target');
+      $('.page-content iframe').css('visibility','hidden');
+      $(target).css('visibility','visible');
     }
     return true;
   };
+
 });
+var iframePageCount=0;

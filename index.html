@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>JGUI - 从零开始（学习心得）</title>
     <script type="text/javascript" src="/js/third/jquery.min.js"></script>
-    <script type="text/javascript" src='/js/third/prefixfree.min.js'></script>
     <link rel="stylesheet" href="/css/page/common.css" type="text/css">
     <link rel="stylesheet" href="/css/jgui.css" type="text/css">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -65,21 +64,21 @@
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
-                                    <a onclick="return false;">子项2-1-1</a>
+                                    <a data-href="/demo/according.html#page=1">子项2-1-1</a>
                                 </dd>
                                 <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
-                                    <a>子项2-1-2</a>
+                                    <a data-href="/demo/according.html#page=2">子项2-1-2</a>
                                 </dd>
                             </dl>
                         </dd>
                         <dd class="jgui-accordion-navitem-child leaf">
-                            <a>子项2-1</a>
+                            <a data-href="/demo/according.html#page=1">子项2-1</a>
                         </dd>
                         <dd class="jgui-accordion-navitem-child leaf">
-                            <a>子项2-2</a>
+                            <a data-href="/demo/according.html#page=1">子项2-2</a>
                         </dd>
                         <dd class="jgui-accordion-navitem-child leaf">
-                            <a>子项2-3</a>
+                            <a data-href="/demo/according.html#page=1">子项2-3</a>
                         </dd>
                     </dl>
                 </ul>
@@ -101,21 +100,21 @@
                                     </a>
                                 </dt>
                                 <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
-                                    <a>子项3-1-1</a>
+                                    <a data-href="/demo/according.html#page=1">子项3-1-1</a>
                                 </dd>
                                 <dd class="jgui-accordion-navitem-child leaf"  style="display: none;">
-                                    <a>子项3-1-2</a>
+                                    <a data-href="/demo/according.html#page=1">子项3-1-2</a>
                                 </dd>
                             </dl>
                         </dd>
                         <dd class="jgui-accordion-navitem-child leaf">
-                            <a>子项3-1</a>
+                            <a data-href="/demo/according.html#page=1">子项3-1</a>
                         </dd>
                         <dd class="jgui-accordion-navitem-child leaf">
-                            <a>子项3-2</a>
+                            <a data-href="/demo/according.html#page=1">子项3-2</a>
                         </dd>
                         <dd class="jgui-accordion-navitem-child leaf">
-                            <a>子项3-3</a>
+                            <a data-href="/demo/according.html#page=1">子项3-3</a>
                         </dd>
                     </dl>
                 </ul>
@@ -137,7 +136,7 @@
         <div class="page-tab jgui-tab" style="visibility:show" id="pagetab">
             <div class="anticon icon-doubleleft jgui-tab-pre"></div>
             <div class="jgui-tabcontent">
-                <div class="jgui-tabitem"  data-href="demo/home.html" data-frame="pageiframe"><i class="anticon icon-home jgui-tab-item-icon"></i><span>首页</span><i class="anticon icon-close jgui-tab-close" style="visibility:hidden"></i></div>
+                <a class="jgui-tabitem"  data-href="demo/home.html" data-target="pageiframe"><i class="anticon icon-home jgui-tab-item-icon"></i><span>首页</span><i class="anticon icon-close jgui-tab-close" style="visibility:hidden"></i></a>
             </div>
             <div class="anticon icon-doubleright jgui-tab-next"></div>
         </div>

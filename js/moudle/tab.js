@@ -9,6 +9,19 @@ $(function () {
     init = function(p_options, p_datas, p_param) {
       return $p_selector.each(function() {
         $this=$(this);
+        var datas = $this.extend(
+          {
+            _sumdelta: 0,
+            _mouseintervalhandle: undefined,
+            _startmousewheeldatetime: null
+          },
+          p_datas
+        );
+        var events = {
+          onTabItemClick: undefined
+        };
+        $this.data("datas", datas);
+        $this.data("events", events);
         $this.find(".jgui-tab-pre").unbind('click').click(function(event) {
           var cur_left = $this.find(".jgui-tabcontent").scrollLeft(); //当前滚过的距离
           $this.find(".jgui-tabcontent")
@@ -28,14 +41,14 @@ $(function () {
           $(this).addClass("selected");
           //更新样式
           var href = $(this).data('href');
-          var target="#"+ $(this).data('frame');
-          if(href!="undefined")
-          $(target).attr('src', href);
+          var target="#"+ $(this).data('target');
+          if ($this.data("events").onTabItemClick != undefined) {
+            $this.data("events").onTabItemClick(this,target);
+          }
         });
         $this.find(".jgui-tabitem .jgui-tab-close").unbind('click').click(function(event) {
          var $pre=$(this)
-          .closest(".jgui-tabitem").prev();
-          
+          .closest(".jgui-tabitem").siblings(".jgui-tabitem").last();
           $(this)
             .closest(".jgui-tabitem")
             .remove();

@@ -29,7 +29,7 @@
   left: 0;
   top: 0;
   height: 100%;
-  border-right-color: #008888;
+  border-right-color: #0E6A4A;
   border-right-style: solid;
   border-right-width: 2px;
   pointer-events: none;
@@ -67,7 +67,7 @@
   padding-left: 65px;
 }
 .jgui-accordion-navitem-child.selected {
-  background-color: #008888;
+  background-color: #0E6A4A;
   color: #ffffff;
 }
 .jgui-accordion-navitem-more {

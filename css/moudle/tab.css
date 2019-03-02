@@ -13,7 +13,7 @@
 }
 .jgui-tab-pre:hover,
 .jgui-tab-next:hover {
-  color: #008888;
+  color: #22B581;
   font-weight: bold;
 }
 .jgui-tab-pre {
@@ -72,6 +72,7 @@
   margin: 0px;
   width: 150px;
   color: #666666;
+  border-radius: 3px;
 }
 .jgui-tabitem .jgui-tab-item-icon
 {
@@ -81,18 +82,20 @@
   zoom: 1;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border-bottom: 3px solid #008888;
+  border-bottom: 3px solid #22B581;
   border-left: 1px solid #eeeeee;
   border-right: 1px solid #eeeeee;
   top: 0px;
-  color: #008888;
-  -webkit-transition:color 2s;
-  transition:color 2s;
+  color: #EEE;
+  background: #22B581;
+  -webkit-transition:color 0.2s;
+  transition:color 0.2s;
 }
 .jgui-tabitem:hover
 {
   zoom:1;
-  color: #04cccc;
-  -webkit-transition:color 0.5s;
-  transition:color 0.5s;
+  color: #ffffff;
+  background: #33c591;
+  -webkit-transition:color 0.2s;
+  transition:color 0.2s;
 }

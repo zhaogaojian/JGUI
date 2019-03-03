@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache,must-revalidate">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>JGUI - 从零开始（学习心得）</title>
+    <script type="text/javascript" src="/js/third/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/page/common.css" type="text/css">
+    <link rel="stylesheet" href="/css/jgui.css" type="text/css">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="bookmark" href="/favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/third/html5.js"></script>
+    <script type="text/javascript" src="/js/third/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?bac88ac9a169826a551fcfde47e1753d";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>        
+</head>
+<body>
+   <div id="down" style='color:blue;padding: 10px;'>1、事件监测：左键或右键单击我</div>
+   <div id="context" style='color:blue;padding: 10px;'>2、右键菜单事件</div>
+   <div id="menuclicktest" style='color:blue;padding: 10px;'>3、点我弹出菜单</div>
+   <div class="jgui-menu" id="testmenu">
+    <ul> 
+        <li class="jgui-menuitem" onclick="alert('a');">关闭当前标签</li> 
+        <li class="jgui-menuitem">关闭其它标签</li> 
+        <li class="jgui-menuitem">关闭左侧标签</li> 
+        <li class="jgui-menuitem">关闭右侧标签</li> 
+    </ul>
+   </div>
+   <script  type="text/javascript">
+    $('#down').mousedown(function(e){ 
+          if(3 == e.which){ 
+               alert('这是右键单击事件'); 
+          }else if(1 == e.which){ 
+                   alert('这是左键单击事件'); 
+          } 
+		  window.event.returnValue=false;  
+		  return false;
+    })	
+    $('#context').contextmenu(function ()
+    {
+        alert('这是右键单击事件'); 
+        return false; 
+    });
+    $('#menuclicktest').contextmenu(function ()
+    {
+        $('#testmenu').css("visibility","visible");
+        $('#testmenu').slideDown();
+        return false; 
+    });
+    $(document).click(function()
+    {
+        $('.jgui-menu').css("visibility","hidden");
+    });
+   </script>
+    <script type="text/javascript" src="/js/jgui.all.js?v=20190227"></script>
+</body>
+
+</html>

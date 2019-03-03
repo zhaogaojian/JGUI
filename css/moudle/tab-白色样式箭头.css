@@ -86,14 +86,14 @@
   border-left: 1px solid #eeeeee;
   border-right: 1px solid #eeeeee;
   top: 0px;
-  color: #EEE;
-  background: #22B581;
+  color: #22B581;
+  background: #FFF;
   -webkit-transition:color 0.2s;
   transition:color 0.2s;
   margin-bottom: 50px;
 }
 .jgui-tabitem.selected:hover {
-  color:#FFF;
+  color:#12A571;
 }
 .jgui-tabitem.selected:before
 {
@@ -102,7 +102,7 @@
   border-style: solid solid solid solid;
   border-left-color: transparent;
   border-right-color: transparent;
-  border-top-color: #22B581;
+  border-top-color: #ffffff;
   border-bottom-color: transparent;
   bottom: -10px;
   position: absolute;
@@ -110,7 +110,7 @@
   left:50%;
   transition: all 0.2s;
   margin-left: -3px;
-  z-index: 100;zoom: 1;
+  z-index: 100;
 }
 .jgui-tabitem:hover
 {
@@ -119,7 +119,7 @@
   -webkit-transition:color 0.2s;
   transition:color 0.2s;
   box-sizing: border-box;
-  color:#11C571;
+  color:#22B581;
 }
 /*css代码*/
 .tabmenu{

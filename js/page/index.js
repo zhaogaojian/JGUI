@@ -46,7 +46,7 @@ $(function() {
       if ($findTab == undefined) {
         iframePageCount++;
         var appentHtml =
-          '<a class="jgui-tabitem"  data-href="'+href+'" data-target="pageiframe'+iframePageCount+'"><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>' +
+          '<a class="jgui-tabitem"  data-href="'+href+'"? data-target="pageiframe'+iframePageCount+'"><i class="anticon icon-codepen jgui-tab-item-icon"></i><span>' +
           text +
           '</span><i class=" anticon icon-close jgui-tab-close "></i></a>';
           $("#pagetab .jgui-tabcontent").append(appentHtml);

@@ -1,0 +1,23 @@
+.jgui-menu
+{
+    position:absolute;
+    text-align: left;
+    font-size: 16px;
+    min-width: 180px;
+    list-style: none;
+    border-width: 1px; 
+    border-color: #cccccc;
+    box-shadow: 0 1px 4px rgba(0,0,0,.3);
+    border-style: solid;
+    box-sizing: border-box;
+    visibility: hidden;
+}
+.jgui-menu .jgui-menuitem {
+    padding: 10px;
+    padding-left: 20px;
+    color: #222222;
+}
+.jgui-menu .jgui-menuitem:hover {
+    background-color : #22B581;
+    color: white;
+}

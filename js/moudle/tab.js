@@ -54,6 +54,7 @@ $(function () {
             .remove();
             $pre.trigger("click");
         });
+        
       });
     };
     return {

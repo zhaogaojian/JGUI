@@ -11,6 +11,7 @@
     border-style: solid;
     box-sizing: border-box;
     visibility: hidden;
+    cursor: pointer;
 }
 .jgui-menu .jgui-menuitem {
     padding: 10px;

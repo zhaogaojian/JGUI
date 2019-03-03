@@ -10,6 +10,7 @@
   line-height: 45px;
   cursor: pointer;
   border:1px solid #eeeeee;
+  box-sizing: border-box;
 }
 .jgui-tab-pre:hover,
 .jgui-tab-next:hover {
@@ -39,6 +40,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   line-height: 45px;
+  
  
 }
 .jgui-tabcontent
@@ -51,7 +53,7 @@
   white-space: nowrap;
   overflow:hidden;
   display: inline-block;
-  line-height: 60px;
+  line-height: 45px;
   font-size:0;
   box-sizing: border-box;
 }
@@ -82,7 +84,7 @@
   zoom: 1;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border-bottom: 3px solid #EEE;
+  border-bottom: 3px solid #22B581;
   border-left: 1px solid #eeeeee;
   border-right: 1px solid #eeeeee;
   top: 0px;
@@ -104,7 +106,7 @@
   border-right-color: transparent;
   border-top-color: #22B581;
   border-bottom-color: transparent;
-  bottom: -10px;
+  bottom: -12px;
   position: absolute;
   text-align: center;
   left:50%;

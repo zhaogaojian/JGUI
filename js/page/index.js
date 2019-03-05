@@ -1,4 +1,10 @@
 $(function() {
+  //主页绑定关闭事件,因为主页是直接包含的
+  $("#pageiframe").on("load", function(event){//判断 iframe是否加载完成  这一步很重要
+    　　$("body",this.contentDocument).click(function(){//添加点击事件
+      　　　　$('.jgui-menu').css("visibility","hidden");
+    　　});
+    });
   // 初始化内容
   $("#folderbtn").click(function(event) {
     if ($("#leftpanel").is(".unfold")) {
@@ -70,6 +76,12 @@ $(function() {
           tabItemEvents.onTabItemRefresh = function(p_obj, target) {
             $(target).attr('src', $(target).attr('src'));
           }
+          //监听iframe子页面，关闭menu
+          $("iframe").on("load", function(event){//判断 iframe是否加载完成  这一步很重要
+            　　$("body",this.contentDocument).click(function(){//添加点击事件
+              　　　　$('.jgui-menu').css("visibility","hidden");
+            　　});
+            });
       }
       var left=$tabcontent.scrollLeft();
       var objleft=$findTab.offset().left-$tabcontent.offset().left-50;//50是左右按钮的宽度

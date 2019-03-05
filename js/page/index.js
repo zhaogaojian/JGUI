@@ -1,7 +1,7 @@
 $(function() {
   //主页绑定关闭事件,因为主页是直接包含的
   $("#pageiframe").on("load", function(event){//判断 iframe是否加载完成  这一步很重要
-    　　$("body",this.contentDocument).click(function(){//添加点击事件
+    　　$(this.contentDocument).click(function(){//添加点击事件
       　　　　$('.jgui-menu').css("visibility","hidden");
     　　});
     });
@@ -78,7 +78,7 @@ $(function() {
           }
           //监听iframe子页面，关闭menu
           $("iframe").on("load", function(event){//判断 iframe是否加载完成  这一步很重要
-            　　$("body",this.contentDocument).click(function(){//添加点击事件
+            　　$(this.contentDocument).click(function(){//添加点击事件
               　　　　$('.jgui-menu').css("visibility","hidden");
             　　});
             });

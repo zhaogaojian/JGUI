@@ -46,7 +46,6 @@ $(function () {
             .removeClass("selected");
           $(this).addClass("selected");
           //更新样式
-          var href = $(this).data('href');
           var target="#"+ $(this).data('target');
           if ( $tab.data("events").onTabItemClick != undefined) {
             $tab.data("events").onTabItemClick(this,target);
@@ -54,31 +53,35 @@ $(function () {
         });
         $tab.find(".jgui-tabitem").unbind('contextmenu').contextmenu(function ()
         {
-            $tabitem=$(this);
-            if($tabitem.find(".jgui-tab-close").css("visibility")=="hidden")//判断是否需要隐藏关闭当前标签
+            var $tabitem=$(this);
+            var $tabmenu=$tab.find('.jgui-menu');
+            if($tabitem.find(".jgui-tab-close").css("visibility")=="hidden")//判断是否需要禁用关闭当前标签
             {
-              $('#testmenu .closecurtab').addClass('jgui-disable');
+              $tabmenu.find('.closecurtab').addClass('jgui-disable');
             }
             else
-            $('#testmenu .closecurtab').removeClass('jgui-disable');
-
-            $('#testmenu').css("top",$tabitem.position().top+$tabitem.height()/2);
-            $('#testmenu').css("left",$tabitem.position().left+$tabitem.width());
-            $('#testmenu').css("visibility","visible");
-            $('#testmenu .closecurtab').unbind("click").click(function(event){
-              $tabitem.find(".jgui-tab-close").first().trigger("click");
+              $tabmenu.find('.closecurtab').removeClass('jgui-disable');
+            //显示菜单
+            $tabmenu.css("top",$tabitem.position().top+$tabitem.height()/2);
+            $tabmenu.css("left",$tabitem.position().left+$tabitem.width());
+            $tabmenu.css("visibility","visible");
+            $tabmenu.find('.closecurtab').unbind("click").click(function(event){
+            $tabitem.find(".jgui-tab-close").first().trigger("click");
             });
-            $('#testmenu .closeothertab').unbind("click").click(function(event){
+            //关闭其它
+            $tabmenu.find('.closeothertab').unbind("click").click(function(event){
               $tabitem.siblings('.jgui-tabitem').find(".jgui-tab-close").trigger("click");
             });
-
-            $('#testmenu .closelefttab').unbind("click").click(function(event){
+            //关闭左边
+            $tabmenu.find('.closelefttab').unbind("click").click(function(event){
               $tabitem.prevAll().find(".jgui-tab-close").trigger("click");
             });
-            $('#testmenu .closerighttab').unbind("click").click(function(event){
+            //关闭右边
+            $tabmenu.find('.closerighttab').unbind("click").click(function(event){
               $tabitem.nextAll().find(".jgui-tab-close").trigger("click");
             });
-            $('#testmenu .refreshcur').unbind("click").click(function(event){
+            //刷新当前
+            $tabmenu.find('.refreshcur').unbind("click").click(function(event){
               var target="#"+ $tabitem.data('target');
               if ( $tab.data("events").onTabItemRefresh != undefined) {
                 $tab.data("events").onTabItemRefresh(this,target);

@@ -29,16 +29,14 @@
     </script>        
 </head>
 <body>
-   <div id="down" style='color:blue;padding: 10px;'>1、事件监测：左键或右键单击我</div>
-   <div id="context" style='color:blue;padding: 10px;'>2、右键菜单事件</div>
-   <div id="menuclicktest" style='color:blue;padding: 10px;'>3、点我弹出菜单</div>
+   <div id="down" style='color:blue;padding: 10px;width:auto'>1、事件监测：左键或右键单击我</div>
+   <div id="context" style='color:blue;padding: 10px;;width:auto'>2、右键菜单事件</div>
+   <div id="menuclicktest" style='color:blue;padding: 10px;;width:auto'>3、点我弹出菜单</div>
    <div class="jgui-menu" id="testmenu">
-    <ul> 
-        <li class="jgui-menuitem" onclick="alert('a');">关闭当前标签</li> 
-        <li class="jgui-menuitem">关闭其它标签</li> 
-        <li class="jgui-menuitem">关闭左侧标签</li> 
-        <li class="jgui-menuitem">关闭右侧标签</li> 
-    </ul>
+        <div class="jgui-menuitem" onclick="alert('a');">关闭当前标签</div> 
+        <div class="jgui-menuitem">关闭其它标签</div> 
+        <div class="jgui-menuitem">关闭左侧标签</div> 
+        <div class="jgui-menuitem">关闭右侧标签</div> 
    </div>
    <script  type="text/javascript">
     $('#down').mousedown(function(e){ 
@@ -57,13 +55,14 @@
     });
     $('#menuclicktest').contextmenu(function ()
     {
-        $('#testmenu').css("visibility","visible");
-        $('#testmenu').slideDown();
+        //$('#testmenu').css("visibility","visible");
+        $('#testmenu').slideDown();//display:none;
         return false; 
     });
     $(document).click(function()
     {
-        $('.jgui-menu').css("visibility","hidden");
+        //$('.jgui-menu').css("visibility","hidden");
+        $('#testmenu').slideUp();
     });
    </script>
     <script type="text/javascript" src="/js/jgui.all.js?v=20190227"></script>

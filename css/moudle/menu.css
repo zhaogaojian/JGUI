@@ -3,7 +3,7 @@
     position:absolute;
     text-align: left;
     font-size: 16px;
-    min-width: 180px;
+    min-width: 130px;
     list-style: none;
     border-width: 1px; 
     border-color: #cccccc;
@@ -12,10 +12,12 @@
     box-sizing: border-box;
     visibility: hidden;
     cursor: pointer;
+    z-index: 99999;
+    background: #ffffff;
 }
 .jgui-menu .jgui-menuitem {
-    padding: 10px;
     padding-left: 20px;
+    padding-right: 20px;
     color: #222222;
 }
 .jgui-menu .jgui-menuitem:hover {

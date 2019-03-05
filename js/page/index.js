@@ -60,6 +60,16 @@ $(function() {
             $('.page-content iframe').css('visibility','hidden');
             $(target).css('visibility','visible');
           }
+          //监听TabItem关闭事件
+          var tabItemEvents=$('#pagetab').data("events");
+          tabItemEvents.onTabItemClose = function(p_obj, target) {
+            $(target).remove();
+          }
+          //监听TabItem刷新事件
+          var tabItemEvents=$('#pagetab').data("events");
+          tabItemEvents.onTabItemRefresh = function(p_obj, target) {
+            $(target).attr('src', $(target).attr('src'));
+          }
       }
       var left=$tabcontent.scrollLeft();
       var objleft=$findTab.offset().left-$tabcontent.offset().left-50;//50是左右按钮的宽度

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache,must-revalidate">
+    <meta http-equiv="Cache" content="no-cache">
+    <title>JGUI - 从零开始（学习心得）</title>
+    <script type="text/javascript" src="/js/third/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/page/common.css" type="text/css">
+    <link rel="stylesheet" href="/css/jgui.css" type="text/css">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="bookmark" href="/favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/third/html5.js"></script>
+    <script type="text/javascript" src="/js/third/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?bac88ac9a169826a551fcfde47e1753d";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>        
+     <style>
+        .jgui-btn {
+            position: relative;
+            display: block;
+            width: 200px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .jgui-tip:after {
+            content: attr(data-tip);
+            visibility: hidden;
+            position: absolute;
+            padding: 5px 10px;
+            right: -10px;
+            transform:translateX(100%);
+            bottom: 50%;
+            margin-left: 12px;
+            font-size: 16px;
+            background: #000;
+            color: #fff;
+            cursor: default;
+            border-radius: 5px;
+            line-height: 20px;
+        }
+        .jgui-tip:before {
+            content: " ";
+            position: absolute;
+            visibility: hidden;
+            right: -10px;
+            bottom: 50%;
+            margin-bottom: 5px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid #000;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid #000;
+        }
+        .jgui-tip:hover:before,
+        .jgui-tip:hover:after {
+            visibility: visible;
+        }
+        .jgui-tipinfo
+        {
+            display:none;
+            z-index:999;
+            position:absolute;
+            background:#222;
+            padding:5px 10px;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+   <div>这是测试页面</div>
+ <script type="text/javascript">
+  function ShowTip(event,obj,tipinfo)
+  {
+   $('body').append( '<div id="tipinfo" class="jgui-tipinfo">'+tipinfo+'</div>');
+   $('#tipinfo').css("top", $(obj).position().top+$(obj).height()/2 + "px").css("left", $(obj).position().left+$(obj).width()+"px").fadeIn("slow");
+  }
+  function HideTip()
+  {
+   $("#tipinfo").fadeOut("slow").remove();
+  }
+ </script>
+</body>
+   <button class="jgui-btn jgui-tip" data-tip="测试右方弹出三角提示框(不支持IE8)" id="test">button1</button>
+   
+   <button class="jgui-btn" onmouseover="ShowTip(event,this,'测试右方弹出三角提示框(支持IE8)')" onmouseout="HideTip()">button2</button>
+   <script type="text/javascript" src="/js/jgui.all.js?v=20190227"></script>
+</body>
+
+</html>

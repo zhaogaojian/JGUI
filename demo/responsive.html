@@ -31,6 +31,9 @@
     .lg-4,.md-6,.sm-12
     {
         float:left;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
     }
     .jgui-box
     {
@@ -40,10 +43,10 @@
 </head>
 <body>
     <div>这是测试页面，请调整浏览器大小测试</div>
-    <div class="jgui-box" style="width:100%">
+    <div class="jgui-box" style="width:100%;line-height: 50px">
         <div class="lg-4 md-6 sm-12" style="background:brown;color: white">A</div>
         <div class="lg-4 md-6 sm-12" style="background:blue;color: white">B</div>
-        <div class="lg-4 md-12 sm-12" style="background:green;color: white">C</div>
+        <div class="lg-4 md-12 sm-12 sm-hide" style="background:green;color: white">C（会隐藏）</div>
     </div>
     <script type="text/javascript">
     window.onresize = setWidth;
@@ -53,16 +56,17 @@
         console.log(width);
         if(width>=1024)
         {
-            $('.jgui-box .lg-4').css('width',4*100.0/12+'%');
+            $('.jgui-box .lg-4').css('width',4*100.0/12+'%').show();
         }
         else if(width>=480 && width<1024)
         {
-            $('.jgui-box .md-6').css('width',6*100.0/12+'%');
-            $('.jgui-box .md-12').css('width',12*100.0/12+'%');
+            $('.jgui-box .md-6').css('width',6*100.0/12+'%').show();
+            $('.jgui-box .md-12').css('width',12*100.0/12+'%').show();
         }
         else
         {
-            $('.jgui-box .sm-12').css('width',12*100.0/12+'%');
+            $('.jgui-box .sm-12').css('width',12*100.0/12+'%').show();
+            $('.jgui-box .sm-hide').hide();
         }
     };
     $(function () { setWidth();

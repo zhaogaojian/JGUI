@@ -5,3 +5,4 @@
 3、函数用j小写开头的驼峰，如jAccordion()。jquery对象前面加$，如$obj<br/>
 4、控件定义使用jgui-xxx全小写方式,如jgui-accordion。<br/>
 5、定义对象使用大写字母开头，比如J.Accordion=()<br/>
+6、项目详细介绍：https://www.cnblogs.com/zhaogaojian/p/10421543.html

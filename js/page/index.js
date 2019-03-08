@@ -87,7 +87,6 @@ $(function() {
       var objleft=$findTab.offset().left-$tabcontent.offset().left-50;//50是左右按钮的宽度
       var objright=$findTab.offset().left-$tabcontent.offset().left-50+left+$findTab.width();//50是左右按钮的宽度
       var objwidth=$findTab.width();
-      console.log(left+','+objleft+','+$tabcontent.width());
       if(objleft<0)//左边非可见区域
       {
         $tabcontent.stop().animate({ scrollLeft: left+objleft-objwidth }, 200);

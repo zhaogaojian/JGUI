@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache,must-revalidate">
@@ -34,7 +34,23 @@
             width: 200px;
             font-size: 20px;
             cursor: pointer;
-            z-index: 1;
+            overflow: visible;
+            background: linear-gradient(to bottom, #22B581 0px, #62B581 100%);
+            border: 1px solid transparent;
+            outline: none;
+            color:#eee;
+            border-radius: 2px;
+        }
+        .jgui-btn:hover{
+            background: linear-gradient(to bottom, #12C571 0px, #52C571 100%);;
+            color:#fff;
+        }
+        .jgui-label {
+            position: relative;
+            display: block;
+            width: 200px;
+            font-size: 20px;
+            cursor: pointer;
         }
         .jgui-tip:after {
             content: attr(data-tip);
@@ -49,8 +65,8 @@
             background: #000;
             color: #fff;
             cursor: default;
-            border-radius: 5px;
             line-height: 20px;
+            border-radius: 2px;
         }
         .jgui-tip:before {
             content: " ";
@@ -65,6 +81,7 @@
             border-right: 5px solid #000;
             border-top: 5px solid transparent;
             border-bottom: 5px solid #000;
+            
         }
         .jgui-tip:hover:before,
         .jgui-tip:hover:after {
@@ -78,9 +95,22 @@
             background:#222;
             padding:5px 10px;
             color: #fff;
-            border-radius: 5px;
+            border-radius: 2px;
             font-size: 16px;
             line-height: 20px;
+        }
+        .jgui-tipinfo:before 
+        {
+            content: " ";
+            position: absolute;
+            left: -10px;
+            bottom: 20%;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid #000;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid #000;
         }
     </style>
 </head>
@@ -90,7 +120,7 @@
   function ShowTip(event,obj,tipinfo)
   {
    $('body').append( '<div id="tipinfo" class="jgui-tipinfo">'+tipinfo+'</div>');
-   $('#tipinfo').css("top", $(obj).position().top+$(obj).height()/2 + "px").css("left", $(obj).position().left+$(obj).width()+"px").fadeIn("slow");
+   $('#tipinfo').css("top", $(obj).position().top+$(obj).height()/2 + "px").css("left", $(obj).position().left+$(obj).width()+10+"px").fadeIn("slow");
   }
   function HideTip()
   {
@@ -98,9 +128,9 @@
   }
  </script>
 </body>
-   <button class="jgui-btn jgui-tip" data-tip="测试右方弹出三角提示框(不支持IE8)" id="test">button1</button>
-   
-   <button class="jgui-btn" onmouseover="ShowTip(event,this,'测试右方弹出三角提示框(支持IE8)')" onmouseout="HideTip()">button2</button>
+   <button class="jgui-btn jgui-tip" data-tip="测试右方弹出三角提示框(IE下需使用overflow:visible)" id="test" style="display: block;margin-top:20px;">测试1</button>
+   <a  class="jgui-label jgui-tip"  data-tip="测试右方弹出三角提示框" style="display: block;padding:20px 0  ;margin-top:20px;width:200px; margin-bottom:20px;background: #ccc;text-align: center">测试2</a>
+   <button class="jgui-btn" onmouseover="ShowTip(event,this,'测试右方弹出三角提示框(支持IE8)')" onmouseout="HideTip()">测试3</button>
    <script type="text/javascript" src="/js/jgui.all.js?v=20190227"></script>
 </body>
 

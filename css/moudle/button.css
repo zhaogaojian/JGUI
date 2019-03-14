@@ -10,7 +10,7 @@
     vertical-align:center;
     width:170px;
   }
-  .jgui-btn div {
+  .jgui-btn-info {
     position: relative;
     text-align: center;
     margin-right: 10px;
@@ -34,8 +34,6 @@
     content: "";
     border-color: #222222 transparent transparent;
     text-align: center;
-    transition: all 0.2s;
-    -webkit-transition: all 0.2s;
     position: absolute;
     top: 50%;
     right: 0px;

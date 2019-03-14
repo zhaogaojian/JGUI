@@ -5,6 +5,26 @@ $(function() {
       　　　　$('.jgui-menu').css("visibility","hidden");
     　　});
     });
+
+  //用户事件
+  $("#personalbtn").unbind('click').click(function ()
+  {
+      
+      var $this=$(this);
+      var $btnmenu=$this.find('.jgui-menu');
+      //显示菜单
+      $btnmenu.css("top",$this.position().top+$this.height());
+      $btnmenu.css("left",$this.position().left);
+      $btnmenu.css("right",10);
+      $btnmenu.css("visibility","visible");
+      $btnmenu.find('.password').unbind("click").click(function(event){
+        alert('点击了修改密码');
+      });
+      $btnmenu.find('.exit').unbind("click").click(function(event){
+        alert('点击了退出系统');
+      });
+      return false; 
+  });
   // 初始化内容
   $("#folderbtn").click(function(event) {
     if ($("#leftpanel").is(".unfold")) {
@@ -60,20 +80,20 @@ $(function() {
           $findTab=$("#pagetab .jgui-tabcontent .jgui-tabitem").last();
           $('.page-content').append('<iframe  class="page-iframe" id="pageiframe'+iframePageCount+'" name="pageiframe'+iframePageCount+'" src="'+href+'" frameborder="0"></iframe>');
           isnewpage=true;
-          //监听TabItem点击事件
-          var tabItemEvents=$('#pagetab').data("events");
-          tabItemEvents.onTabItemClick = function(p_obj, target) {
+          //监听this点击事件
+          var thisEvents=$('#pagetab').data("events");
+          thisEvents.onthisClick = function(p_obj, target) {
             $('.page-content iframe').css('visibility','hidden');
             $(target).css('visibility','visible');
           }
-          //监听TabItem关闭事件
-          var tabItemEvents=$('#pagetab').data("events");
-          tabItemEvents.onTabItemClose = function(p_obj, target) {
+          //监听this关闭事件
+          var thisEvents=$('#pagetab').data("events");
+          thisEvents.onthisClose = function(p_obj, target) {
             $(target).remove();
           }
-          //监听TabItem刷新事件
-          var tabItemEvents=$('#pagetab').data("events");
-          tabItemEvents.onTabItemRefresh = function(p_obj, target) {
+          //监听this刷新事件
+          var thisEvents=$('#pagetab').data("events");
+          thisEvents.onthisRefresh = function(p_obj, target) {
             $(target).attr('src', $(target).attr('src'));
           }
           //监听iframe子页面，关闭menu

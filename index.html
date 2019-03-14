@@ -97,6 +97,9 @@
                         <dd class="jgui-accordion-navitem-child leaf">
                             <a data-href="/font/iconfont/demo_fontclass.html">图标大全</a>
                         </dd>
+                        <dd class="jgui-accordion-navitem-child leaf">
+                                <a data-href="/demo/mvvm.html">MVVM</a>
+                           </dd>
                     </dl>
                 </ul>
             </div>
@@ -105,11 +108,15 @@
     <div class="page-center" id="centerpanel">
         <div class="jgui-page-top">
             <div class="icon anticon icon-menufold jgui-folderbtn"  id="folderbtn"></div>
-            <div class="jgui-btn" style="float:right;">
-                <div>
+            <div class="jgui-btn" id="personalbtn" style="float:right;">
+                <div class="jgui-btn-info">
                     <img src="./images/head.jpg"></img>
                     <span>麦田守望者</span>
                     <i class="jgui-btn-down"></i>
+                </div>
+                <div class="jgui-menu" id="testmenu">
+                    <div class="jgui-menuitem password">修改密码</div>
+                    <div class="jgui-menuitem exit">退出系统</div> 
                 </div>
             </div>
         </div>
@@ -122,7 +129,7 @@
             <div class="jgui-menu" id="testmenu">
                 <div class="jgui-menuitem refreshcur">刷新当前页</div>
                 <hr/>
-                <div class="jgui-menuitem closecurtab" style="">关闭当前页</div> 
+                <div class="jgui-menuitem closecurtab" >关闭当前页</div> 
                 <div class="jgui-menuitem closeothertab">关闭其它标签页</div> 
                 <div class="jgui-menuitem closelefttab">关闭左侧标签页</div> 
                 <div class="jgui-menuitem closerighttab">关闭右侧标签页</div> 

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache,must-revalidate">
+    <meta http-equiv="Cache" content="no-cache">
+    <title>JGUI - 从零开始（学习心得）</title>
+    <script type="text/javascript" src="/js/third/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/page/common.css" type="text/css">
+    <link rel="stylesheet" href="/css/jgui.css" type="text/css">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="bookmark" href="/favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/third/html5.js"></script>
+    <script type="text/javascript" src="/js/third/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?bac88ac9a169826a551fcfde47e1753d";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>        
+     <style>
+         .jgui-datetimepicker
+         {
+             padding: 10px;
+         }
+         .jgui-datetimepicker .btn
+         {
+             padding: 5px;
+         }
+         .jgui-datetimepicker td
+         {
+            text-align:center;
+         }
+         .jgui-datetimepicker a
+         {
+            padding: 5px;
+         }
+         .jgui-datetimepicker .curyearmonth
+         {
+             margin:0px auto;
+         }
+    </style>
+</head>
+<body>
+   <div>这是日期界面显示代码，事件函数感兴趣的可以自己完善</div>
+ <script type="text/javascript">
+    //获取指定日期当月的显示数组
+    function getMonthArray(date)
+    {
+        var arrDay = new Array(0)
+        var htmlval="";
+        var firstDayWeek=getWeekDay(getMonthBeginDate(date));
+        var predays=firstDayWeek;
+        for(var i=predays-1;i>0;i--)
+        {
+           var curdate= getDateMinus(date,-i);
+           arrDay.push(curdate.getDate())
+        }
+        arrDay.push(date.getDate());
+        for(var i=1;i<=8-predays;i++)
+        {
+           var curdate= getDateMinus(date,i);
+           arrDay.push(curdate.getDate())
+        }
+        for(var i=8-predays+1;i<=42-predays;i++)
+        {
+            var curdate= getDateMinus(date,i);
+           arrDay.push(curdate.getDate());
+        }
+        return arrDay;
+    }
+    //增加减少指定天数
+    function getDateMinus(date,days)
+    {
+        var oneDay=1000*60*60*24;
+        return new Date(date.getTime()+days*oneDay);
+    }
+    //获取指定时间的年代
+    function getYear(date){
+	    return date.getFullYear();
+    }
+    //获取指定时间的月份
+    function getMonth(date){
+	    return date.getMonth();
+    }
+    //获取指定时间的月初日期
+    function getMonthBeginDate(date){
+        date.setDate(1);
+        return date;
+    }
+    //获取指定时间的月末日期
+    function getMonthEndDate(date){
+        var month=date.getMonth();
+        var nextMonth=++month;
+        var nextMonthFirstDay=new Date(endDate.getFullYear(),nextMonth,1).getTime();
+        var oneDay=1000*60*60*24;
+        return new Date(nextMonthFirstDay-oneDay);
+    }
+    //获取指定时间的星期数
+    function getWeekDay(date)
+    {
+        var a = new Array(0,1,2,3,4,5,6);  
+        var week = new Date().getDay();  
+        return a[week];  
+    }
+    //获取指定时间的月初星期
+    function getMonthBeginWeekDay(date){
+        date.setDate(1);
+        return startdate;
+    }
+    //获取指定时间的月末星期
+    function getMonthEndWeekDay(date){
+	return date.getFullYear();
+    }
+    $(function() {
+        var htmlval="";
+        var index=0;
+        var monthArray= getMonthArray(new Date());
+        for(var line=0;line<6;line++)
+        {
+            var lineval="";
+            for(var col=0;col<7;col++)
+            {
+                lineval=lineval+"<td>"+monthArray[index]+"</td>"
+                index++;
+            }
+            htmlval=htmlval+"<tr>"+lineval+"</tr>";
+        }
+        $('.jgui-datetimepicker .value').html(new Date().Format("yyyy/MM/dd"));
+        $('.jgui-datetimepicker .day').html(htmlval);
+    });
+    /**
+     * 日期转字符串
+     * @param fmt
+     * @returns
+     */
+    Date.prototype.Format = function (fmt) {
+        var o = {
+            "M+": this.getMonth() + 1, //月份 
+            "d+": this.getDate(), //日 
+            "h+": this.getHours(), //小时 
+            "m+": this.getMinutes(), //分 
+            "s+": this.getSeconds(), //秒 
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+            "S": this.getMilliseconds() //毫秒 
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o){
+            if (new RegExp("(" + k + ")").test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            }
+        }
+        return fmt;
+    }
+ </script>
+<div class="jgui-datetimepicker" style="position:relative;width:320px;height:220px;border: cadetblue 1px solid">
+    <a class="btn preyear">上一年</a>
+    <a class="btn preday">上一天</a>
+    <a class="btn value">2019/3/15</a>
+    <a class="btn nextday">下一天</a>
+    <a class="btn nextyear">下一年</a>
+    <hr style="margin:10px 0px"/>
+    <table style="width:100%">
+        <thead>
+            <tr>
+                <th>日</th>
+                <th>一</th>
+                <th>二</th>
+                <th>三</th>
+                <th>四</th>
+                <th>五</th>
+                <th>六</th>
+            </tr>
+        </thead>
+        <tbody class="day">
+            
+        </tbody>
+    </table>
+    <hr style="margin:10px 0px"/>
+    <div style="position:absolute;bottom: 10px;right: 10px;">
+    <a>确定</a>
+    <a>取消</a>
+    <a>现在</a>
+    </div>
+</div>
+</body>
+
+</html>
